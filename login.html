@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - HAFEEZ SPORTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F5F7FA;
+            color: #1A1A2E;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .navbar .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .logo .brand { color: #FF6B35; }
+        .navbar .nav-links { display: flex; align-items: center; gap: 28px; }
+        .navbar .nav-links a { color: rgba(0,0,0,0.5); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; position: relative; }
+        .navbar .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #FF6B35; transition: 0.3s; }
+        .navbar .nav-links a:hover { color: #0A1628; }
+        .navbar .nav-links a:hover::after { width: 100%; }
+        .navbar .nav-links a.active { color: #FF6B35; }
+        .navbar .nav-links a.active::after { width: 100%; }
+        .navbar .nav-icons { display: flex; align-items: center; gap: 18px; }
+        .navbar .nav-icons a { color: rgba(0,0,0,0.5); font-size: 1.2rem; transition: 0.3s; position: relative; text-decoration: none; }
+        .navbar .nav-icons a:hover { color: #FF6B35; }
+        .navbar .nav-icons .cart-count { position: absolute; top: -8px; right: -10px; background: #FF6B35; color: #FFFFFF; font-size: 0.6rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; }
+        .hamburger span { width: 28px; height: 2px; background: #0A1628; transition: 0.3s; }
+
+        /* ===== LOGIN BOX ===== */
+        .login-container {
+            background: #FFFFFF;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+            max-width: 420px;
+            width: 100%;
+            border: 1px solid rgba(0,0,0,0.04);
+            margin-top: 80px;
+        }
+        .login-container .logo-text {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: #0A1628;
+            margin-bottom: 4px;
+        }
+        .login-container .logo-text .highlight { color: #FF6B35; }
+        .login-container .sub-text {
+            text-align: center;
+            color: rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .login-container .form-group { margin-bottom: 18px; }
+        .login-container .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .login-container .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(0,0,0,0.05);
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+            background: #F8FAFC;
+        }
+        .login-container .form-group input:focus {
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 3px rgba(255,107,53,0.05);
+        }
+        .btn-primary {
+            background: #0A1628;
+            color: #FFFFFF;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,107,53,0.25);
+        }
+        .login-container .error-msg {
+            color: #DC3545;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+        .login-container .error-msg.show { display: block; }
+
+        .login-container .admin-badge {
+            text-align: center;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .login-container .admin-badge span {
+            font-size: 0.75rem;
+            color: rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #FFFFFF;
+            padding: 30px 24px 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .footer .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .navbar .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .login-container { padding: 30px 20px; margin: 70px 16px 80px; }
+            .footer .footer-bottom { flex-direction: column; gap: 4px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">HAFEEZ<span class="brand">SPORTS</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-icons">
+            <a href="wishlist.html"><i class="far fa-heart"></i></a>
+            <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ===== LOGIN ===== -->
+    <div class="login-container">
+        <div class="logo-text">HAFEEZ<span class="highlight">SPORTS</span></div>
+        <div class="sub-text">🔐 Admin Access Only</div>
+
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+            <div class="form-group">
+                <label>👤 Username</label>
+                <input type="text" id="loginUsername" placeholder="Enter admin username" required />
+            </div>
+            <div class="form-group">
+                <label>🔑 Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter admin password" required />
+            </div>
+            <div id="loginError" class="error-msg">❌ Invalid username or password.</div>
+            <button type="submit" class="btn-primary">🔑 Login</button>
+        </form>
+
+        <div class="admin-badge">
+            <span>🔒 Admin Panel Access Only</span>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <span>&copy; 2026 HAFEEZ SPORTS</span>
+            <span>Made with ❤ in Pakistan</span>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================
+        // CART COUNT
+        // ============================================================
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; }
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+
+        // ============================================================
+        // ADMIN LOGIN
+        // ============================================================
+        const VALID_USERNAME = "admin";
+        const VALID_PASSWORD = "hafeez2022";
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const errorMsg = document.getElementById('loginError');
+
+            if (username === VALID_USERNAME && password === VALID_PASSWORD) {
+                errorMsg.classList.remove('show');
+                sessionStorage.setItem('hafeezAdmin', 'true');
+                window.location.href = 'admin-hafeez.html';
+            } else {
+                errorMsg.classList.add('show');
+                document.getElementById('loginPassword').value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

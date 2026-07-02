@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - HAFEEZ SPORTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F5F7FA; color: #1A1A2E; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        .navbar {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 9999;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .navbar .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .logo .brand { color: #FF6B35; }
+        .navbar .nav-links { display: flex; align-items: center; gap: 28px; }
+        .navbar .nav-links a { color: rgba(0,0,0,0.5); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; position: relative; }
+        .navbar .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #FF6B35; transition: 0.3s; }
+        .navbar .nav-links a:hover { color: #0A1628; }
+        .navbar .nav-links a:hover::after { width: 100%; }
+        .navbar .nav-links a.active { color: #FF6B35; }
+        .navbar .nav-links a.active::after { width: 100%; }
+        .navbar .nav-icons { display: flex; align-items: center; gap: 18px; }
+        .navbar .nav-icons a { color: rgba(0,0,0,0.5); font-size: 1.2rem; transition: 0.3s; position: relative; text-decoration: none; }
+        .navbar .nav-icons a:hover { color: #FF6B35; }
+        .navbar .nav-icons .cart-count { position: absolute; top: -8px; right: -10px; background: #FF6B35; color: #FFFFFF; font-size: 0.6rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; }
+        .hamburger span { width: 28px; height: 2px; background: #0A1628; transition: 0.3s; }
+
+        .page-header { padding: 120px 24px 40px; text-align: center; background: #FFFFFF; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: #0A1628; }
+        .page-header h1 .highlight { color: #FF6B35; }
+        .page-header p { color: rgba(0,0,0,0.4); font-size: 1.1rem; }
+
+        .checkout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 0 60px; }
+        .checkout-form { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.04); border-radius: 16px; padding: 30px; }
+        .checkout-form h2 { font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-bottom: 20px; }
+        .checkout-form .form-group { margin-bottom: 18px; }
+        .checkout-form label { display: block; font-weight: 600; color: #0A1628; margin-bottom: 6px; }
+        .checkout-form input, .checkout-form select, .checkout-form textarea {
+            width: 100%; padding: 12px 16px; border: 2px solid rgba(0,0,0,0.05); border-radius: 10px; font-size: 1rem; outline: none; transition: 0.3s; font-family: 'Poppins', sans-serif; background: #F8FAFC;
+        }
+        .checkout-form input:focus, .checkout-form select:focus, .checkout-form textarea:focus { border-color: #FF6B35; box-shadow: 0 0 0 3px rgba(255,107,53,0.05); }
+        .checkout-form textarea { resize: vertical; min-height: 80px; }
+        .checkout-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+        .order-summary { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.04); border-radius: 16px; padding: 30px; height: fit-content; position: sticky; top: 100px; }
+        .order-summary h2 { font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-bottom: 20px; }
+        .order-summary .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .order-summary .summary-item .item-name { color: rgba(0,0,0,0.5); }
+        .order-summary .summary-item .item-price { font-weight: 600; }
+        .order-summary .total-row { display: flex; justify-content: space-between; padding: 15px 0; font-size: 1.2rem; font-weight: 700; color: #0A1628; border-top: 2px solid rgba(0,0,0,0.05); margin-top: 10px; }
+
+        .btn-primary { background: #0A1628; color: #FFFFFF; padding: 14px 35px; border: none; border-radius: 50px; font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.3s; width: 100%; }
+        .btn-primary:hover { background: #FF6B35; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,107,53,0.25); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .payment-options { display: flex; gap: 12px; margin: 15px 0; flex-wrap: wrap; }
+        .payment-options button {
+            flex: 1; padding: 12px; border: 2px solid rgba(0,0,0,0.05); border-radius: 10px; background: #FFFFFF; cursor: pointer; font-weight: 600; transition: 0.3s; font-family: 'Poppins', sans-serif;
+        }
+        .payment-options button:hover { border-color: #FF6B35; background: rgba(255,107,53,0.05); }
+        .payment-options button.active { border-color: #FF6B35; background: rgba(255,107,53,0.1); }
+        .payment-options button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .success-message { text-align: center; padding: 60px 20px; }
+        .success-message i { font-size: 4rem; color: #28a745; }
+        .success-message h2 { margin: 16px 0 8px; color: #0A1628; }
+        .success-message p { color: rgba(0,0,0,0.4); }
+
+        .footer { background: #FFFFFF; padding: 60px 24px 30px; border-top: 1px solid rgba(0,0,0,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1280px; margin: 0 auto; }
+        .footer-grid .brand h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #0A1628; }
+        .footer-grid .brand h3 .highlight { color: #FF6B35; }
+        .footer-grid .brand p { color: rgba(0,0,0,0.4); font-size: 0.9rem; margin: 12px 0 20px; max-width: 300px; line-height: 1.8; }
+        .footer-grid .brand .social-icons { display: flex; gap: 12px; }
+        .footer-grid .brand .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: #F5F7FA; display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
+        .footer-grid .brand .social-icons a:hover { background: #FF6B35; color: #FFFFFF; transform: translateY(-3px); }
+        .footer-grid .col h4 { font-size: 1rem; font-weight: 600; color: #0A1628; margin-bottom: 16px; }
+        .footer-grid .col a { display: block; color: rgba(0,0,0,0.4); text-decoration: none; font-size: 0.9rem; margin-bottom: 8px; transition: 0.3s; }
+        .footer-grid .col a:hover { color: #FF6B35; }
+        .footer-bottom { max-width: 1280px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: rgba(0,0,0,0.3); }
+        .admin-link { display: inline-block; margin-top: 12px; color: #FF6B35; font-size: 0.7rem; text-decoration: none; font-weight: 600; padding: 4px 14px; border: 1px solid rgba(255,107,53,0.2); border-radius: 20px; background: rgba(255,107,53,0.05); transition: 0.3s; }
+        .admin-link:hover { background: rgba(255,107,53,0.1); border-color: #FF6B35; }
+
+        @media (max-width: 1024px) { .checkout-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .navbar .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid .brand .social-icons { justify-content: center; }
+            .page-header h1 { font-size: 2.5rem; }
+            .checkout-form .row { grid-template-columns: 1fr; }
+            .checkout-form { padding: 20px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">HAFEEZ<span class="brand">SPORTS</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-icons">
+            <a href="wishlist.html"><i class="far fa-heart"></i></a>
+            <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Secure <span class="highlight">Checkout</span></h1>
+        <p>Complete your order with confidence</p>
+    </div>
+
+    <div class="container">
+        <div id="checkoutContent">
+            <div class="checkout-grid">
+                <div class="checkout-form">
+                    <h2>📋 Shipping Details</h2>
+                    <form id="checkoutForm" onsubmit="return placeOrder(event)">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="fullName" placeholder="Enter your full name" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" id="email" placeholder="Enter your email" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <textarea id="address" placeholder="Enter your full address" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>City *</label>
+                                <input type="text" id="city" placeholder="City" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input type="text" id="postal" placeholder="Postal code" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Country *</label>
+                            <select id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="India">India</option>
+                                <option value="USA">USA</option>
+                                <option value="UK">UK</option>
+                                <option value="UAE">UAE</option>
+                            </select>
+                        </div>
+
+                        <!-- ✅ SIRF CASH ON DELIVERY -->
+                        <div style="margin: 20px 0;">
+                            <h4 style="font-size:1rem; color:#0A1628; margin-bottom:10px;">💳 Payment Method</h4>
+                            <div class="payment-options">
+                                <button type="button" class="active" style="cursor:default;">
+                                    💵 Cash on Delivery <span style="font-size:0.7rem; color:rgba(0,0,0,0.3);">(Only Option)</span>
+                                </button>
+                            </div>
+                            <input type="hidden" id="paymentMethod" value="cod" />
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="placeOrderBtn">🛒 Place Order</button>
+                    </form>
+                </div>
+
+                <div class="order-summary" id="orderSummary">
+                    <h2>🛍️ Order Summary</h2>
+                    <div id="orderItems"></div>
+                    <div class="total-row">
+                        <span>Total</span>
+                        <span id="orderTotal">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="orderSuccess" style="display:none;">
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <h2>🎉 Order Placed Successfully!</h2>
+                <p>Thank you for your order. You will receive a confirmation email shortly.</p>
+                <p style="margin: 10px 0; color: #FF6B35; font-weight: 600;">Order #: <span id="orderNumber">HS-0001</span></p>
+                <a href="shop.html" class="btn-primary" style="display:inline-block; margin-top:20px; width:auto; padding:14px 50px;">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="brand">
+                <h3>HAFEEZ<span class="highlight">SPORTS</span></h3>
+                <p>Premium sportswear engineered for champions.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col"><h4>Quick Links</h4><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+            <div class="col"><h4>Support</h4><a href="#">Help Center</a><a href="#">Returns</a><a href="#">Size Guide</a></div>
+            <div class="col"><h4>Contact</h4><a href="mailto:hafeezsports1984@gmail.com">📧 hafeezsports1984@gmail.com</a><a href="tel:+923006111120">📱 +92-300-6111120</a></div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 HAFEEZ SPORTS</span><span>Made with ❤ in Pakistan</span></div>
+        
+    </footer>
+
+    <script>
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('hafeezCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
+        }
+
+        function loadCheckout() {
+            const cart = getCart();
+            const container = document.getElementById('orderItems');
+            const totalEl = document.getElementById('orderTotal');
+            const orderBtn = document.getElementById('placeOrderBtn');
+
+            if (cart.length === 0) {
+                container.innerHTML = `<p style="color:rgba(0,0,0,0.4);">Your cart is empty. <a href="shop.html" style="color:#FF6B35;">Shop now</a></p>`;
+                totalEl.textContent = '$0.00';
+                orderBtn.disabled = true;
+                orderBtn.style.opacity = '0.5';
+                orderBtn.style.cursor = 'not-allowed';
+                return;
+            }
+
+            orderBtn.disabled = false;
+            orderBtn.style.opacity = '1';
+            orderBtn.style.cursor = 'pointer';
+
+            let subtotal = 0;
+            container.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                return `
+                    <div class="summary-item">
+                        <span class="item-name">${item.icon || '📦'} ${item.name} × ${item.quantity}</span>
+                        <span class="item-price">$${itemTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            }).join('');
+
+            const shipping = subtotal > 0 ? 5.00 : 0;
+            const tax = subtotal * 0.1;
+            const grandTotal = subtotal + shipping + tax;
+
+            container.innerHTML += `
+                <div class="summary-item"><span class="item-name">Shipping</span><span class="item-price">$${shipping.toFixed(2)}</span></div>
+                <div class="summary-item"><span class="item-name">Tax (10%)</span><span class="item-price">$${tax.toFixed(2)}</span></div>
+            `;
+
+            totalEl.textContent = '$' + grandTotal.toFixed(2);
+            updateCartCount();
+        }
+
+        function placeOrder(e) {
+            e.preventDefault();
+
+            const cart = getCart();
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return false;
+            }
+
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const country = document.getElementById('country').value;
+
+            if (!name || !email || !phone || !address || !city || !country) {
+                alert('⚠️ Please fill all required fields!');
+                return false;
+            }
+
+            let subtotal = 0;
+            cart.forEach(item => { subtotal += item.price * item.quantity; });
+            const shipping = 5.00;
+            const tax = subtotal * 0.1;
+            const grandTotal = subtotal + shipping + tax;
+
+            const order = {
+                customerName: name,
+                email: email,
+                phone: phone,
+                address: address + ', ' + city + ', ' + country,
+                items: cart.map(item => item.name + ' × ' + item.quantity).join(', '),
+                total: grandTotal.toFixed(2),
+                status: 'Pending',
+                date: new Date().toLocaleString(),
+                paymentMethod: 'Cash on Delivery'
+            };
+
+            const orders = JSON.parse(localStorage.getItem('hafeezOrders') || '[]');
+            orders.push(order);
+            localStorage.setItem('hafeezOrders', JSON.stringify(orders));
+
+            saveCart([]);
+
+            document.getElementById('checkoutContent').style.display = 'none';
+            document.getElementById('orderSuccess').style.display = 'block';
+            document.getElementById('orderNumber').textContent = 'HS-' + String(orders.length).padStart(4, '0');
+
+            updateCartCount();
+            return false;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCheckout();
+            updateCartCount();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Contact Us - HAFEEZ SPORTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F5F7FA; color: #1A1A2E; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+        .navbar .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .logo .brand { color: #FF6B35; }
+        .navbar .logo img { height: 35px; width: auto; }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .navbar .nav-links a {
+            color: rgba(0,0,0,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+        .navbar .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FF6B35;
+            transition: 0.3s;
+        }
+        .navbar .nav-links a:hover { color: #0A1628; }
+        .navbar .nav-links a:hover::after { width: 100%; }
+        .navbar .nav-links a.active { color: #FF6B35; }
+        .navbar .nav-links a.active::after { width: 100%; }
+        .navbar .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .navbar .nav-icons a {
+            color: rgba(0,0,0,0.5);
+            font-size: 1.2rem;
+            transition: 0.3s;
+            position: relative;
+            text-decoration: none;
+        }
+        .navbar .nav-icons a:hover { color: #FF6B35; }
+        .navbar .nav-icons .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #FF6B35;
+            color: #FFFFFF;
+            font-size: 0.6rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: #0A1628;
+            transition: 0.3s;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            padding: 120px 24px 40px;
+            text-align: center;
+            background: #FFFFFF;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .page-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: #0A1628;
+        }
+        .page-header h1 .highlight {
+            color: #FF6B35;
+        }
+        .page-header p {
+            color: rgba(0,0,0,0.4);
+            font-size: 1.1rem;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 24px;
+        }
+
+        /* ===== CONTACT GRID ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 40px 0;
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* ===== CONTACT INFO ===== */
+        .contact-info h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .contact-info h2 .highlight {
+            color: #FF6B35;
+        }
+        .contact-info .sub-text {
+            color: rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 20px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.04);
+            margin-bottom: 12px;
+            transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .contact-info .info-item:hover {
+            border-color: #FF6B35;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+        .contact-info .info-item i {
+            font-size: 1.3rem;
+            width: 40px;
+            text-align: center;
+            margin-top: 4px;
+        }
+        .contact-info .info-item .icon-location { color: #E74C3C; }
+        .contact-info .info-item .icon-phone { color: #2ECC71; }
+        .contact-info .info-item .icon-mobile { color: #3498DB; }
+        .contact-info .info-item .icon-email { color: #F39C12; }
+        .contact-info .info-item .icon-clock { color: #9B59B6; }
+
+        .contact-info .info-item .text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 2px;
+        }
+        .contact-info .info-item .text p {
+            color: rgba(0,0,0,0.5);
+            font-size: 0.85rem;
+            margin: 2px 0;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form {
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .contact-form h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .contact-form h2 .highlight {
+            color: #FF6B35;
+        }
+        .contact-form .form-group {
+            margin-bottom: 16px;
+        }
+        .contact-form label {
+            display: block;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(0,0,0,0.05);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+            background: #F8FAFC;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 3px rgba(255,107,53,0.05);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .btn-primary {
+            background: #0A1628;
+            color: #FFFFFF;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255,107,53,0.25);
+        }
+
+        /* ===== MAP ===== */
+        .map-section {
+            margin-top: 20px;
+            padding-bottom: 40px;
+        }
+        .map-section iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #FFFFFF;
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .footer-grid .brand h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: #0A1628;
+        }
+        .footer-grid .brand h3 .highlight {
+            color: #FF6B35;
+        }
+        .footer-grid .brand p {
+            color: rgba(0,0,0,0.4);
+            font-size: 0.9rem;
+            margin: 12px 0 20px;
+            max-width: 300px;
+            line-height: 1.8;
+        }
+        .footer-grid .brand .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-grid .brand .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #F5F7FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0,0,0,0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .footer-grid .brand .social-icons a:hover {
+            background: #FF6B35;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+        .footer-grid .col h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .footer-grid .col a {
+            display: block;
+            color: rgba(0,0,0,0.4);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+        .footer-grid .col a:hover {
+            color: #FF6B35;
+        }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(0,0,0,0.3);
+        }
+
+        .admin-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #FF6B35;
+            font-size: 0.7rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4px 14px;
+            border: 1px solid rgba(255,107,53,0.2);
+            border-radius: 20px;
+            background: rgba(255,107,53,0.05);
+            transition: 0.3s;
+        }
+        .admin-link:hover {
+            background: rgba(255,107,53,0.1);
+            border-color: #FF6B35;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-grid .brand .social-icons {
+                justify-content: center;
+            }
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 100px 16px 30px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">HAFEEZ<span class="brand">SPORTS</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        <div class="nav-icons">
+            <a href="wishlist.html"><i class="far fa-heart"></i></a>
+            <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <h1>Contact <span class="highlight">Us</span></h1>
+        <p>Get in touch with us for any inquiries</p>
+    </section>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Get In <span class="highlight">Touch</span></h2>
+                <p class="sub-text">We'd love to hear from you. Reach out to us anytime.</p>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt icon-location"></i>
+                    <div class="text">
+                        <h4>📍 Address</h4>
+                        <p>Sialkot, Pakistan</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone icon-phone"></i>
+                    <div class="text">
+                        <h4>📞 Phone</h4>
+                        <p>+92-335-0611120</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-mobile-screen-button icon-mobile"></i>
+                    <div class="text">
+                        <h4>📱 Mobile / WhatsApp</h4>
+                        <p>+92-300-6111120</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope icon-email"></i>
+                    <div class="text">
+                        <h4>📧 Email</h4>
+                        <p>hafeezsports1984@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock icon-clock"></i>
+                    <div class="text">
+                        <h4>⏰ Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT FORM - FORMSPREE ===== -->
+            <div class="contact-form">
+                <h2>Send Us a <span class="highlight">Message</span></h2>
+                <form id="contactForm" action="https://formspree.io/f/xvznenwy" method="POST" onsubmit="return handleFormSubmit(event)">
+                    
+                    <!-- ✅ HIDDEN FIELDS - EMAIL SUBJECT CHANGE -->
+                    <input type="hidden" name="_subject" value="HAFEEZ SPORTS - New Enquiry" />
+                    <input type="hidden" name="_replyto" value="saherarshad701@gmail.com" />
+                    
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" name="name" placeholder="Enter your full name" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" placeholder="Enter your email address" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" name="phone" placeholder="Enter your phone number" />
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="subject" placeholder="Enter subject" />
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">📤 Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="map-section">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d74.5!3d32.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDMwJzAwLjAiTiA3NMKwMzAnMDAuMCJF!5e0!3m2!1sen!2s!4v1700000000000" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+   <footer class="footer">
+    <div class="footer-grid">
+        <!-- Column 1: Brand -->
+        <div class="brand">
+            <h3>HAFEEZ<span class="highlight">SPORTS</span></h3>
+            <p>Premium sportswear engineered for champions.</p>
+            <p style="font-size:0.8rem; color:rgba(0,0,0,0.3); margin-top:4px;">
+                Proprietor: Muhammad Hafeez
+            </p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col">
+            <h4>Quick Links</h4>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        
+
+        <!-- Column 4: Contact -->
+        <div class="col">
+            <h4>Contact</h4>
+            <a href="mailto:hafeezsports1984@gmail.com"><i class="fas fa-envelope" style="width:20px; color:#FF6B35;"></i> hafeezsports1984@gmail.com</a>
+            <a href="tel:+923006111120"><i class="fas fa-phone" style="width:20px; color:#FF6B35;"></i> +92-300-6111120</a>
+            <a href="tel:+923350611120"><i class="fas fa-mobile-alt" style="width:20px; color:#FF6B35;"></i> +92-335-0611120</a>
+        </div>
+
+        <!-- Column 5: Location -->
+        <div class="col location-col">
+            <h4>📍 Location</h4>
+           
+            <a href="#" style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-size:0.85rem; color:rgba(0,0,0,0.5); line-height:1.5;">
+                <i class="fas fa-map-marker-alt" style="width:20px; color:#FF6B35; margin-top:2px;"></i>
+                <span>Ganjianwali Kalan, P.o Khas Sialkot</span>
+            </a>
+             <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:#FF6B35; display:flex; align-items:center; gap:8px;">
+                <i class="fas fa-globe" style="width:20px; color:#FF6B35;"></i> www.hafeezports.com
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>&copy; 2022 HAFEEZ SPORTS</span>
+        <span>Made with ❤ in Pakistan</span>
+    </div>
+   
+</footer>
+
+    <script>
+        // ===== NAVBAR =====
+        window.addEventListener('scroll', function() {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const links = document.querySelector('.nav-links');
+            if (links.style.display === 'flex') {
+                links.style.display = 'none';
+            } else {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '70px';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.background = 'rgba(255,255,255,0.98)';
+                links.style.padding = '20px 24px';
+                links.style.borderBottom = '1px solid rgba(0,0,0,0.05)';
+                links.style.gap = '12px';
+            }
+        });
+
+        // ============================================================
+        // ===== CART =====
+        // ============================================================
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; }
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+
+        // ============================================================
+        // ===== CONTACT FORM - FORMSPREE =====
+        // ============================================================
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('✅ Your message has been sent! We will contact you soon.');
+                    form.reset();
+                    window.location.href = 'contact.html';
+                } else {
+                    alert('❌ Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('❌ Network error. Please try again.');
+            });
+            
+            return false;
+        }
+    </script>
+
+</body>
+</html>

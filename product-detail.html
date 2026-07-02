@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail - HAFEEZ SPORTS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #F5F7FA; color: #1A1A2E; line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+        .navbar .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0A1628;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .logo .brand { color: #FF6B35; }
+        .navbar .logo img { height: 35px; width: auto; }
+        .navbar .nav-links { display: flex; align-items: center; gap: 28px; }
+        .navbar .nav-links a { color: rgba(0,0,0,0.5); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; position: relative; }
+        .navbar .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #FF6B35; transition: 0.3s; }
+        .navbar .nav-links a:hover { color: #0A1628; }
+        .navbar .nav-links a:hover::after { width: 100%; }
+        .navbar .nav-links a.active { color: #FF6B35; }
+        .navbar .nav-links a.active::after { width: 100%; }
+        .navbar .nav-icons { display: flex; align-items: center; gap: 18px; }
+        .navbar .nav-icons a { color: rgba(0,0,0,0.5); font-size: 1.2rem; transition: 0.3s; position: relative; text-decoration: none; }
+        .navbar .nav-icons a:hover { color: #FF6B35; }
+        .navbar .nav-icons .cart-count { position: absolute; top: -8px; right: -10px; background: #FF6B35; color: #FFFFFF; font-size: 0.6rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; }
+        .hamburger span { width: 28px; height: 2px; background: #0A1628; transition: 0.3s; }
+
+        /* ===== BACK LINK ===== */
+        .back-link {
+            display: inline-block;
+            margin: 120px 0 20px;
+            color: #FF6B35;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* ===== PRODUCT DETAIL ===== */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.02);
+            margin-bottom: 60px;
+        }
+        .detail-grid .product-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #F5F7FA;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .detail-grid .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .detail-grid .product-info h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 8px;
+        }
+        .detail-grid .product-info .category {
+            color: rgba(0,0,0,0.3);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .detail-grid .product-info .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FF6B35;
+            margin: 12px 0;
+        }
+        .detail-grid .product-info .price .old-price {
+            color: rgba(0,0,0,0.2);
+            text-decoration: line-through;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-left: 10px;
+        }
+        .detail-grid .product-info .specs {
+            background: #F8FAFC;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .detail-grid .product-info .specs strong { color: #0A1628; }
+        .detail-grid .product-info .desc {
+            color: rgba(0,0,0,0.5);
+            line-height: 1.8;
+            margin: 15px 0 25px;
+        }
+        .detail-grid .product-info .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #0A1628;
+            color: #FFFFFF;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 1;
+        }
+        .btn-primary:hover {
+            background: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.25);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #0A1628;
+            padding: 14px 35px;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 1;
+        }
+        .btn-secondary:hover {
+            border-color: #FF6B35;
+            background: rgba(255,107,53,0.03);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #FFFFFF;
+            padding: 60px 24px 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .footer-grid .brand h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: #0A1628;
+        }
+        .footer-grid .brand h3 .highlight { color: #FF6B35; }
+        .footer-grid .brand p {
+            color: rgba(0,0,0,0.4);
+            font-size: 0.9rem;
+            margin: 12px 0 20px;
+            max-width: 300px;
+            line-height: 1.8;
+        }
+        .footer-grid .brand .social-icons { display: flex; gap: 12px; }
+        .footer-grid .brand .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #F5F7FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0,0,0,0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .footer-grid .brand .social-icons a:hover { background: #FF6B35; color: #FFFFFF; transform: translateY(-3px); }
+        .footer-grid .col h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .footer-grid .col a {
+            display: block;
+            color: rgba(0,0,0,0.4);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+        .footer-grid .col a:hover { color: #FF6B35; }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(0,0,0,0.3);
+        }
+
+        .admin-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #FF6B35;
+            font-size: 0.7rem;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 4px 14px;
+            border: 1px solid rgba(255,107,53,0.2);
+            border-radius: 20px;
+            background: rgba(255,107,53,0.05);
+            transition: 0.3s;
+        }
+        .admin-link:hover {
+            background: rgba(255,107,53,0.1);
+            border-color: #FF6B35;
+        }
+
+        @media (max-width: 1024px) {
+            .detail-grid { grid-template-columns: 1fr; padding: 20px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .navbar .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid .brand .social-icons { justify-content: center; }
+            .detail-grid .product-info .btn-group { flex-direction: column; }
+            .detail-grid .product-info h1 { font-size: 1.6rem; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">HAFEEZ<span class="brand">SPORTS</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-icons">
+            <a href="wishlist.html"><i class="far fa-heart"></i></a>
+            <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ===== PRODUCT DETAIL ===== -->
+    <div class="container">
+        <a href="shop.html" class="back-link">⬅ Back to Shop</a>
+        <div id="productDetail"></div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="brand">
+                <h3>HAFEEZ<span class="highlight">SPORTS</span></h3>
+                <p>Premium sportswear engineered for champions.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col"><h4>Quick Links</h4><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+            <div class="col"><h4>Support</h4><a href="#">Help Center</a><a href="#">Returns</a><a href="#">Size Guide</a></div>
+            <div class="col"><h4>Contact</h4><a href="#">info@hafeezsports.com</a><a href="#">+92-300-1234567</a></div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 HAFEEZ SPORTS</span>
+            <span>Made with ❤ in Pakistan</span>
+        </div>
+        <div style="text-align:center; margin-top:10px;">
+           
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================
+        // ===== GOOGLE SHEETS CONFIGURATION =====
+        // ============================================================
+        
+        const SHEET_ID = '16cvrUafi2qYh538sungTha2whBnuUgFWRdIEFMWhDvM';
+        const SHEET_NAME = 'Sheet1';
+        const API_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
+
+        // ============================================================
+        // ===== LOAD PRODUCT FROM GOOGLE SHEETS =====
+        // ============================================================
+
+        function loadProductsFromGoogleSheets() {
+            return fetch(API_URL)
+                .then(response => response.text())
+                .then(data => {
+                    try {
+                        const jsonData = JSON.parse(data.substring(47, data.length - 2));
+                        const rows = jsonData.table.rows || [];
+                        
+                        if (!rows || rows.length === 0) {
+                            return getDefaultProducts();
+                        }
+
+                        return rows.map((row, index) => {
+                            const cols = row.c || [];
+                            return {
+                                id: parseInt(cols[0]?.v) || index + 1,
+                                name: cols[1]?.v || 'Unknown',
+                                category: cols[2]?.v || 'Unknown',
+                                price: cols[3]?.v || 'Price on Request',
+                                image: cols[4]?.v || 'https://via.placeholder.com/600x600/0A1628/FF6B35?text=Product',
+                                icon: cols[5]?.v || '📦',
+                                desc: cols[6]?.v || 'No description available.',
+                                available: cols[7]?.v === 'TRUE' || cols[7]?.v === true
+                            };
+                        });
+                    } catch (e) {
+                        console.error('Error parsing data:', e);
+                        return getDefaultProducts();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading from Google Sheets:', error);
+                    return getDefaultProducts();
+                });
+        }
+
+        function getDefaultProducts() {
+            return [
+                { id: 1, name: "Pro Elite Training Tee", category: "T-Shirts", price: "$45.00", 
+                  image: "https://via.placeholder.com/600x600/0A1628/FF6B35?text=Pro+Elite+Tee", 
+                  icon: "👕", desc: "Premium training t-shirt", available: true },
+                { id: 2, name: "Compression Leggings Pro", category: "Bottoms", price: "$55.00", 
+                  image: "https://via.placeholder.com/600x600/0A1628/FF6B35?text=Leggings+Pro", 
+                  icon: "👖", desc: "High compression leggings", available: true }
+            ];
+        }
+
+        // ============================================================
+        // ===== CART =====
+        // ============================================================
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('hafeezCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
+        }
+
+        function addToCartFromDetail(id, name, price) {
+            let cart = getCart();
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: parseFloat(price.replace('$', '')),
+                    quantity: 1,
+                    image: 'https://via.placeholder.com/600x600/0A1628/FF6B35?text=Product',
+                    icon: '📦'
+                });
+            }
+            saveCart(cart);
+            alert(name + ' added to cart! 🛒');
+        }
+
+        function toggleWishlistFromDetail(id) {
+            let wishlist = JSON.parse(localStorage.getItem('hafeezWishlist') || '[]');
+            const index = wishlist.indexOf(id);
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                alert('Removed from wishlist');
+            } else {
+                wishlist.push(id);
+                alert('Added to wishlist! ❤️');
+            }
+            localStorage.setItem('hafeezWishlist', JSON.stringify(wishlist));
+        }
+
+        // ============================================================
+        // ===== LOAD PRODUCT DETAIL =====
+        // ============================================================
+
+        function loadProductDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const id = parseInt(params.get('id'));
+
+            loadProductsFromGoogleSheets().then(products => {
+                const product = products.find(p => p.id === id);
+                const container = document.getElementById('productDetail');
+
+                if (!product) {
+                    container.innerHTML = `<p style="text-align:center;padding:60px;color:rgba(0,0,0,0.4);">Product not found!</p>`;
+                    return;
+                }
+
+                container.innerHTML = `
+                    <div class="detail-grid">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/600x600/0A1628/FF6B35?text=Product'" />
+                        </div>
+                        <div class="product-info">
+                            <h1>${product.icon || '📦'} ${product.name}</h1>
+                            <div class="category">${product.category}</div>
+                            <div class="price">${product.price}</div>
+                            <div class="specs"><strong>⚙️ Specifications:</strong> Premium quality sportswear</div>
+                            <div class="desc"><strong>📝 Description:</strong> ${product.desc}</div>
+                            <div class="btn-group">
+                                <button class="btn-primary" onclick="addToCartFromDetail(${product.id}, '${product.name}', '${product.price}')">🛒 Add to Cart</button>
+                                <button class="btn-secondary" onclick="toggleWishlistFromDetail(${product.id})">❤️ Wishlist</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // ============================================================
+        // ===== NAVBAR =====
+        // ============================================================
+        window.addEventListener('scroll', function() {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            const links = document.querySelector('.nav-links');
+            if (links.style.display === 'flex') { links.style.display = 'none'; } else {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '70px';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.background = 'rgba(255,255,255,0.98)';
+                links.style.padding = '20px 24px';
+                links.style.borderBottom = '1px solid rgba(0,0,0,0.05)';
+                links.style.gap = '12px';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProductDetail();
+            updateCartCount();
+        });
+    </script>
+
+</body>
+</html>
