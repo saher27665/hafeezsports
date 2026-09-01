@@ -7,14 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
+        :root {
+            --orange: #FF6B35;
+            --blue: #2196F3;
+            --green: #4CAF50;
+            --dark: #0A1628;
+            --light: #F5F7FA;
+            --gradient: linear-gradient(135deg, #FF6B35, #2196F3, #4CAF50);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: #F5F7FA; color: #1A1A2E; line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
 
-        /* ===== NAVBAR ===== */
+        /* ===== NAVBAR - COMPLETE COLORED ===== */
         .navbar {
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(20px);
+            background: var(--gradient);
             padding: 12px 24px;
             display: flex;
             justify-content: space-between;
@@ -24,41 +31,75 @@
             left: 0;
             right: 0;
             z-index: 9999;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
             transition: 0.3s;
         }
-        .navbar.scrolled {
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-        }
+        .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.2); }
         .navbar .logo {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 2rem;
             font-weight: 700;
-            color: #0A1628;
+            color: #FFFFFF;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .navbar .logo .brand { color: #FF6B35; }
-        .navbar .logo img { height: 35px; width: auto; }
+        .navbar .logo .brand { color: #FFFFFF; }
         .navbar .nav-links { display: flex; align-items: center; gap: 28px; }
-        .navbar .nav-links a { color: rgba(0,0,0,0.5); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; position: relative; }
-        .navbar .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #FF6B35; transition: 0.3s; }
-        .navbar .nav-links a:hover { color: #0A1628; }
+        .navbar .nav-links a { 
+            color: rgba(255,255,255,0.85); 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            transition: 0.3s; 
+            position: relative;
+            padding: 4px 0;
+        }
+        .navbar .nav-links a::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -4px; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background: #FFFFFF; 
+            transition: 0.3s; 
+        }
+        .navbar .nav-links a:hover { color: #FFFFFF; }
         .navbar .nav-links a:hover::after { width: 100%; }
-        .navbar .nav-links a.active { color: #FF6B35; }
+        .navbar .nav-links a.active { color: #FFFFFF; }
         .navbar .nav-links a.active::after { width: 100%; }
         .navbar .nav-icons { display: flex; align-items: center; gap: 18px; }
-        .navbar .nav-icons a { color: rgba(0,0,0,0.5); font-size: 1.2rem; transition: 0.3s; position: relative; text-decoration: none; }
-        .navbar .nav-icons a:hover { color: #FF6B35; }
-        .navbar .nav-icons .cart-count { position: absolute; top: -8px; right: -10px; background: #FF6B35; color: #FFFFFF; font-size: 0.6rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .navbar .nav-icons a { 
+            color: rgba(255,255,255,0.85); 
+            font-size: 1.2rem; 
+            transition: 0.3s; 
+            position: relative; 
+            text-decoration: none; 
+        }
+        .navbar .nav-icons a:hover { color: #FFFFFF; }
+        .navbar .nav-icons .cart-count { 
+            position: absolute; 
+            top: -8px; 
+            right: -10px; 
+            background: #FFFFFF; 
+            color: var(--orange); 
+            font-size: 0.6rem; 
+            font-weight: 700; 
+            width: 18px; 
+            height: 18px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
         .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; background: none; border: none; }
-        .hamburger span { width: 28px; height: 2px; background: #0A1628; transition: 0.3s; }
+        .hamburger span { width: 28px; height: 2px; background: #FFFFFF; transition: 0.3s; }
 
         /* ===== PAGE HEADER ===== */
         .page-header {
-            padding: 120px 24px 40px;
+            padding: 100px 24px 40px;
             text-align: center;
             background: #FFFFFF;
             border-bottom: 1px solid rgba(0,0,0,0.05);
@@ -66,10 +107,10 @@
         .page-header h1 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 4rem;
-            color: #0A1628;
+            color: var(--dark);
         }
         .page-header h1 .highlight {
-            color: #FF6B35;
+            color: var(--orange);
         }
         .page-header p {
             color: rgba(0,0,0,0.4);
@@ -100,11 +141,11 @@
         .about-grid .about-text h2 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 3rem;
-            color: #0A1628;
+            color: var(--dark);
             margin-bottom: 16px;
         }
         .about-grid .about-text h2 .highlight {
-            color: #FF6B35;
+            color: var(--orange);
         }
         .about-grid .about-text p {
             color: rgba(0,0,0,0.5);
@@ -113,6 +154,7 @@
             margin-bottom: 16px;
         }
 
+        /* ===== MISSION ===== */
         .mission-section {
             padding: 60px 0;
             background: #F8FAFC;
@@ -131,7 +173,7 @@
             transition: 0.3s;
         }
         .mission-card:hover {
-            border-color: #FF6B35;
+            border-color: var(--orange);
             transform: translateY(-5px);
         }
         .mission-card .icon {
@@ -142,7 +184,7 @@
         .mission-card h4 {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #0A1628;
+            color: var(--dark);
             margin-bottom: 8px;
         }
         .mission-card p {
@@ -150,120 +192,140 @@
             font-size: 0.9rem;
         }
 
-        /* ===== FOOTER - HERO STYLE (WHITE) ===== */
+        /* ===== FOOTER - COMPLETE COLORED ===== */
         .footer {
-            background: #FFFFFF;
-            padding: 60px 24px 30px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            background: var(--gradient);
+            padding: 50px 24px 30px;
+            color: #FFFFFF;
         }
-
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr 1.3fr;
+            gap: 30px;
             max-width: 1280px;
             margin: 0 auto;
         }
-
         .footer-grid .brand h3 {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 2rem;
-            color: #0A1628;
+            color: #FFFFFF;
         }
-        .footer-grid .brand h3 .highlight {
-            color: #FF6B35;
-        }
-
+        .footer-grid .brand h3 .highlight { color: #FFFFFF; }
         .footer-grid .brand p {
-            color: rgba(0,0,0,0.4);
+            color: rgba(255,255,255,0.85);
             font-size: 0.9rem;
-            margin: 12px 0 20px;
+            margin: 12px 0 8px;
             max-width: 300px;
             line-height: 1.8;
         }
-
         .footer-grid .brand .social-icons {
             display: flex;
             gap: 12px;
+            margin-top: 12px;
         }
         .footer-grid .brand .social-icons a {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: #F5F7FA;
+            background: rgba(255,255,255,0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(0,0,0,0.3);
+            color: #FFFFFF;
             transition: 0.3s;
             text-decoration: none;
         }
         .footer-grid .brand .social-icons a:hover {
-            background: #FF6B35;
-            color: #FFFFFF;
+            background: #FFFFFF;
+            color: var(--orange);
             transform: translateY(-3px);
         }
-
         .footer-grid .col h4 {
             font-size: 1rem;
             font-weight: 600;
-            color: #0A1628;
+            color: #FFFFFF;
             margin-bottom: 16px;
         }
-
         .footer-grid .col a {
-            display: block;
-            color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
             font-size: 0.9rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             transition: 0.3s;
         }
-        .footer-grid .col a:hover {
-            color: #FF6B35;
+        .footer-grid .col a:hover { color: #FFFFFF; }
+        .footer-grid .col a i {
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
         }
-
+        .footer-grid .location-col a {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 6px;
+            color: rgba(255,255,255,0.85);
+        }
+        .footer-grid .location-col a i {
+            width: 20px;
+            text-align: center;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .footer-grid .location-col a span { line-height: 1.5; }
+        .footer-grid .location-col a:first-child {
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+        .footer-grid .location-col a:last-child {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.85);
+        }
+        .footer-grid .location-col a:last-child:hover { color: #FFFFFF; }
         .footer-bottom {
             max-width: 1280px;
             margin: 40px auto 0;
             padding-top: 20px;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            border-top: 1px solid rgba(255,255,255,0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 0.8rem;
-            color: rgba(0,0,0,0.3);
+            color: rgba(255,255,255,0.7);
         }
 
-        .admin-hidden-link { position: fixed; bottom: 10px; right: 10px; color: rgba(0,0,0,0.03); font-size: 0.3rem; text-decoration: none; z-index: 9999; transition: 0.3s; }
-        .admin-hidden-link:hover { color: #FF6B35; }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .about-grid { grid-template-columns: 1fr; }
             .mission-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
         }
-
         @media (max-width: 768px) {
             .navbar .nav-links { display: none; }
             .hamburger { display: flex; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; text-align: center; }
             .footer-grid .brand .social-icons { justify-content: center; }
+            .footer-grid .brand p { max-width: 100%; }
+            .footer-grid .col a { justify-content: center; }
+            .footer-grid .location-col a { justify-content: center; }
             .page-header h1 { font-size: 2.5rem; }
             .mission-grid { grid-template-columns: 1fr; }
             .about-grid .about-image { height: 250px; font-size: 4rem; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
         }
-
         @media (max-width: 480px) {
             .about-grid .about-text h2 { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-grid .col a { justify-content: center; }
+            .footer-grid .location-col a { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== NAVBAR ===== -->
+    <!-- ===== NAVBAR - COMPLETE COLORED ===== -->
     <nav class="navbar" id="navbar">
         <a href="index.html" class="logo">HAFEEZ<span class="brand">SPORTS</span></a>
         <div class="nav-links">
@@ -275,7 +337,6 @@
         <div class="nav-icons">
             <a href="wishlist.html"><i class="far fa-heart"></i></a>
             <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
-            
             <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
         </div>
     </nav>
@@ -314,7 +375,7 @@
     <!-- ===== MISSION ===== -->
     <section class="mission-section">
         <div class="container">
-            <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; text-align: center; color: #0A1628; margin-bottom: 40px;">
+            <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; text-align: center; color: var(--dark); margin-bottom: 40px;">
                 Our <span class="highlight">Mission</span>
             </h2>
             <div class="mission-grid">
@@ -337,63 +398,55 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== FOOTER - COMPLETE COLORED ===== -->
     <footer class="footer">
-    <div class="footer-grid">
-        <!-- Column 1: Brand -->
-        <div class="brand">
-            <h3>HAFEEZ<span class="highlight">SPORTS</span></h3>
-            <p>Premium sportswear engineered for champions.</p>
-            <p style="font-size:0.8rem; color:rgba(0,0,0,0.3); margin-top:4px;">
-                Proprietor: Muhammad Hafeez
-            </p>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+        <div class="footer-grid">
+            <div class="brand">
+                <h3>HAFEEZ<span class="highlight">SPORTS</span></h3>
+                <p>Premium sportswear engineered for champions.</p>
+                <p style="font-size:0.8rem; opacity:0.7; margin-top:4px;">
+                    Proprietor: Muhammad Hafeez
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="col">
+                <h4>Quick Links</h4>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="col">
+                <h4>Contact</h4>
+                <a href="mailto:hafeezsports1984@gmail.com"><i class="fas fa-envelope"></i> hafeezsports1984@gmail.com</a>
+                <a href="tel:+923006111120"><i class="fas fa-phone"></i> +92-300-6111120</a>
+                <a href="tel:+923350611120"><i class="fas fa-mobile-alt"></i> +92-335-0611120</a>
+            </div>
+
+            <div class="col location-col">
+                <h4>📍 Location</h4>
+                <a href="#" style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-size:0.85rem; line-height:1.5;">
+                    <i class="fas fa-map-marker-alt" style="margin-top:2px;"></i>
+                    <span>Ganjianwali Kalan, P.o Khas Sialkot</span>
+                </a>
+                <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-globe"></i> www.hafeezports.com
+                </a>
             </div>
         </div>
 
-        <!-- Column 2: Quick Links -->
-        <div class="col">
-            <h4>Quick Links</h4>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+        <div class="footer-bottom">
+            <span>&copy; 2022 HAFEEZ SPORTS</span>
+            <span>Made with ❤ in Pakistan</span>
         </div>
-
-        
-
-        <!-- Column 4: Contact -->
-        <div class="col">
-            <h4>Contact</h4>
-            <a href="mailto:hafeezsports1984@gmail.com"><i class="fas fa-envelope" style="width:20px; color:#FF6B35;"></i> hafeezsports1984@gmail.com</a>
-            <a href="tel:+923006111120"><i class="fas fa-phone" style="width:20px; color:#FF6B35;"></i> +92-300-6111120</a>
-            <a href="tel:+923350611120"><i class="fas fa-mobile-alt" style="width:20px; color:#FF6B35;"></i> +92-335-0611120</a>
-        </div>
-
-        <!-- Column 5: Location -->
-        <div class="col location-col">
-            <h4>📍 Location</h4>
-           
-            <a href="#" style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-size:0.85rem; color:rgba(0,0,0,0.5); line-height:1.5;">
-                <i class="fas fa-map-marker-alt" style="width:20px; color:#FF6B35; margin-top:2px;"></i>
-                <span>Ganjianwali Kalan, P.o Khas Sialkot</span>
-            </a>
-             <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:#FF6B35; display:flex; align-items:center; gap:8px;">
-                <i class="fas fa-globe" style="width:20px; color:#FF6B35;"></i> www.hafeezports.com
-            </a>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <span>&copy; 2022 HAFEEZ SPORTS</span>
-        <span>Made with ❤ in Pakistan</span>
-    </div>
-   
-</footer>
+    </footer>
 
     <script>
         // ===== NAVBAR SCROLL =====
@@ -404,16 +457,18 @@
         // ===== HAMBURGER =====
         document.getElementById('hamburger').addEventListener('click', function() {
             const links = document.querySelector('.nav-links');
-            if (links.style.display === 'flex') { links.style.display = 'none'; } else {
+            if (links.style.display === 'flex') {
+                links.style.display = 'none';
+            } else {
                 links.style.display = 'flex';
                 links.style.flexDirection = 'column';
                 links.style.position = 'absolute';
                 links.style.top = '70px';
                 links.style.left = '0';
                 links.style.right = '0';
-                links.style.background = 'rgba(255,255,255,0.98)';
+                links.style.background = 'rgba(255,107,53,0.95)';
                 links.style.padding = '20px 24px';
-                links.style.borderBottom = '1px solid rgba(0,0,0,0.05)';
+                links.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
                 links.style.gap = '12px';
             }
         });
@@ -423,11 +478,6 @@
         // ============================================================
         function getCart() {
             try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; }
-        }
-
-        function saveCart(cart) {
-            localStorage.setItem('hafeezCart', JSON.stringify(cart));
-            updateCartCount();
         }
 
         function updateCartCount() {
