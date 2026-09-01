@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About - HAFEEZ SPORTS</title>
+    <title>Shop - HAFEEZ SPORTS</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
@@ -14,6 +14,7 @@
             --dark: #0A1628;
             --light: #F5F7FA;
             --gradient: linear-gradient(135deg, #FF6B35, #2196F3, #4CAF50);
+            --shadow: 0 20px 60px rgba(0,0,0,0.04);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
@@ -107,20 +108,33 @@
         .page-header h1 .highlight { color: var(--orange); }
         .page-header p { color: rgba(0,0,0,0.4); font-size: 1.1rem; }
 
-        .about-section { padding: 60px 0; background: #FFFFFF; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-grid .about-image { background: #F5F7FA; border-radius: 24px; height: 400px; display: flex; align-items: center; justify-content: center; font-size: 6rem; border: 1px solid rgba(0,0,0,0.04); }
-        .about-grid .about-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--dark); margin-bottom: 16px; }
-        .about-grid .about-text h2 .highlight { color: var(--orange); }
-        .about-grid .about-text p { color: rgba(0,0,0,0.5); font-size: 1rem; line-height: 1.9; margin-bottom: 16px; }
+        .shop-layout { padding: 40px 0 60px; }
+        .products-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+        .products-header .results { color: rgba(0,0,0,0.4); font-size: 0.9rem; }
+        .products-header select { padding: 10px 16px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background: #FFFFFF; color: var(--dark); font-family: 'Poppins', sans-serif; cursor: pointer; outline: none; }
+        .products-header select:focus { border-color: var(--orange); }
 
-        .mission-section { padding: 60px 0; background: #F8FAFC; }
-        .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .mission-card { background: #FFFFFF; padding: 30px; border-radius: 16px; text-align: center; border: 1px solid rgba(0,0,0,0.04); transition: 0.3s; }
-        .mission-card:hover { border-color: var(--orange); transform: translateY(-5px); }
-        .mission-card .icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
-        .mission-card h4 { font-size: 1.1rem; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-        .mission-card p { color: rgba(0,0,0,0.4); font-size: 0.9rem; }
+        .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .product-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+        .product-card:hover { transform: translateY(-8px); border-color: var(--orange); box-shadow: var(--shadow); }
+        .product-card .product-image { height: 260px; background: #F5F7FA; display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; overflow: hidden; }
+        .product-card .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-card .product-image .badge { position: absolute; top: 12px; left: 12px; background: var(--dark); color: #FFFFFF; font-size: 0.6rem; font-weight: 600; padding: 4px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .product-card .product-image .wishlist-btn { position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.3); border: none; color: #FFFFFF; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+        .product-card .product-image .wishlist-btn:hover { background: var(--orange); color: #FFFFFF; }
+        .product-card .product-info { padding: 20px; }
+        .product-card .product-info .product-name { font-size: 0.95rem; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+        .product-card .product-info .product-category { font-size: 0.7rem; color: rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 1px; }
+        .product-card .product-info .product-price { font-size: 1.1rem; font-weight: 700; color: var(--orange); margin-top: 8px; }
+        .product-card .product-info .add-to-cart { width: 100%; margin-top: 12px; padding: 10px; background: #F5F7FA; border: none; border-radius: 8px; color: var(--dark); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: 0.3s; font-family: 'Poppins', sans-serif; }
+        .product-card .product-info .add-to-cart:hover { background: var(--dark); color: #FFFFFF; }
 
         /* ===== FOOTER - COMPLETE COLORED ===== */
         .footer {
@@ -171,25 +185,24 @@
         }
 
         @media (max-width: 1024px) {
-            .about-grid { grid-template-columns: 1fr; }
-            .mission-grid { grid-template-columns: repeat(2, 1fr); }
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
         }
         @media (max-width: 768px) {
             .navbar .nav-links { display: none; }
             .hamburger { display: flex; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr; text-align: center; }
             .footer-grid .brand .social-icons { justify-content: center; }
             .footer-grid .brand p { max-width: 100%; }
             .footer-grid .col a { justify-content: center; }
             .footer-grid .location-col a { justify-content: center; }
             .page-header h1 { font-size: 2.5rem; }
-            .mission-grid { grid-template-columns: 1fr; }
-            .about-grid .about-image { height: 250px; font-size: 4rem; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
         }
         @media (max-width: 480px) {
-            .about-grid .about-text h2 { font-size: 2rem; }
+            .products-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .product-card .product-image { height: 180px; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .footer-grid .col a { justify-content: center; }
             .footer-grid .location-col a { justify-content: center; }
@@ -201,41 +214,32 @@
         <a href="index.html" class="logo">HAFEEZ<span class="brand">SPORTS</span></a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html" class="active">About</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
         <div class="nav-icons">
             <a href="wishlist.html"><i class="far fa-heart"></i></a>
             <a href="cart.html" style="position:relative;"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
-            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <button class="hamburger"><span></span><span></span><span></span></button>
         </div>
     </nav>
     <div class="page-header">
-        <h1>About <span class="highlight">Us</span></h1>
-        <p>Learn more about HAFEEZ SPORTS</p>
+        <h1>Shop <span class="highlight">Collection</span></h1>
+        <p>Discover premium sportswear designed for champions</p>
     </div>
-    <section class="about-section">
-        <div class="container about-grid">
-            <div class="about-image"><span>🏆</span></div>
-            <div class="about-text">
-                <h2>Our <span class="highlight">Story</span></h2>
-                <p>HAFEEZ SPORTS was founded with a simple mission: to provide premium sportswear that empowers athletes to perform at their best. From the gym to the field, we believe that what you wear matters.</p>
-                <p>Every product is engineered with precision, using top-tier materials and performance-driven designs. We don't just make sportswear — we make champions.</p>
-                <p><strong style="color: var(--dark);">📍 Sialkot, Pakistan</strong><br /><span style="color: rgba(0,0,0,0.4);">Proudly manufactured in Pakistan.</span></p>
-            </div>
+    <div class="shop-layout container">
+        <div class="products-header">
+            <span class="results" id="productCount">Loading products...</span>
+            <select id="sortSelect">
+                <option value="default">Sort by: Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
         </div>
-    </section>
-    <section class="mission-section">
-        <div class="container">
-            <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; text-align: center; color: var(--dark); margin-bottom: 40px;">Our <span class="highlight">Mission</span></h2>
-            <div class="mission-grid">
-                <div class="mission-card"><span class="icon">🧵</span><h4>Premium Quality</h4><p>Top-tier materials engineered for durability and performance</p></div>
-                <div class="mission-card"><span class="icon">🎯</span><h4>Performance Fit</h4><p>Designed to move with you, not against you</p></div>
-                <div class="mission-card"><span class="icon">🌱</span><h4>Sustainable Practices</h4><p>Eco-friendly manufacturing and ethical sourcing</p></div>
-            </div>
-        </div>
-    </section>
+        <div class="products-grid" id="shopProductsGrid"></div>
+    </div>
     <footer class="footer">
         <div class="footer-grid">
             <div class="brand">
@@ -279,10 +283,89 @@
         </div>
     </footer>
     <script>
+        async function loadProductsFromJSON() {
+            try {
+                const response = await fetch('products.json');
+                if (!response.ok) throw new Error('JSON file not found');
+                return await response.json();
+            } catch (error) {
+                return [
+                    { id: 1, name: "Pro Elite Training Tee", category: "T-Shirts", price: "$45.00", image: "images/product1.jpg", desc: "Premium quality training t-shirt", available: true },
+                    { id: 2, name: "Compression Leggings Pro", category: "Bottoms", price: "$55.00", image: "images/product2.jpg", desc: "High compression leggings", available: true }
+                ];
+            }
+        }
+        function getCart() { try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; } }
+        function saveCart(cart) { localStorage.setItem('hafeezCart', JSON.stringify(cart)); updateCartCount(); }
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
+        }
+        function addToCart(id, name, price, image) {
+            let cart = getCart();
+            const existing = cart.find(item => item.id === id);
+            const priceNum = parseFloat(String(price).replace('$', '').replace(',', ''));
+            if (existing) { existing.quantity += 1; } 
+            else { cart.push({ id, name, price: priceNum, quantity: 1, image: image || 'images/product1.jpg' }); }
+            saveCart(cart);
+            alert(name + ' added to cart!');
+        }
+        function toggleWishlist(id) {
+            let wishlist = JSON.parse(localStorage.getItem('hafeezWishlist') || '[]');
+            const index = wishlist.indexOf(id);
+            if (index > -1) { wishlist.splice(index, 1); alert('Removed from wishlist'); } 
+            else { wishlist.push(id); alert('Added to wishlist!'); }
+            localStorage.setItem('hafeezWishlist', JSON.stringify(wishlist));
+        }
+        let allProducts = [];
+        async function loadShopProducts() {
+            const products = await loadProductsFromJSON();
+            allProducts = products;
+            renderProducts(products);
+            document.getElementById('productCount').textContent = products.length + ' products';
+            updateCartCount();
+        }
+        function renderProducts(products) {
+            const grid = document.getElementById('shopProductsGrid');
+            if (!grid) return;
+            if (products.length === 0) {
+                grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; padding:40px; color:rgba(0,0,0,0.3);">No products found.</p>`;
+                return;
+            }
+            grid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/400x250/0A1628/FF6B35?text=Product'" />
+                        ${p.available ? '' : '<span class="badge">Out of Stock</span>'}
+                        <button class="wishlist-btn" onclick="toggleWishlist(${p.id})"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-category">${p.category}</div>
+                        <div class="product-price">${p.price}</div>
+                        <a href="product-detail.html?id=${p.id}" style="display:block; text-align:center; margin-top:6px; color:var(--orange); font-size:0.8rem; text-decoration:none;">View Details</a>
+                        <button class="add-to-cart" onclick="addToCart(${p.id}, '${p.name}', '${p.price}', '${p.image}')">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const value = this.value;
+            let sorted = [...allProducts];
+            if (value === 'price-low') {
+                sorted.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', '')));
+            } else if (value === 'price-high') {
+                sorted.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', '')));
+            } else if (value === 'name') {
+                sorted.sort((a, b) => a.name.localeCompare(b.name));
+            }
+            renderProducts(sorted);
+        });
         window.addEventListener('scroll', function() {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
-        document.getElementById('hamburger').addEventListener('click', function() {
+        document.querySelector('.hamburger').addEventListener('click', function() {
             const links = document.querySelector('.nav-links');
             if (links.style.display === 'flex') { links.style.display = 'none'; } else {
                 links.style.display = 'flex';
@@ -297,13 +380,7 @@
                 links.style.gap = '12px';
             }
         });
-        function getCart() { try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; } }
-        function updateCartCount() {
-            const cart = getCart();
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
-        }
-        document.addEventListener('DOMContentLoaded', updateCartCount);
+        document.addEventListener('DOMContentLoaded', loadShopProducts);
     </script>
 </body>
 </html>
