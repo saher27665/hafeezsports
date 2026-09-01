@@ -1,4 +1,4 @@
-=<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -263,7 +263,7 @@
         .newsletter-box .input-group button { padding: 14px 35px; border-radius: 50px; border: none; background: var(--orange); color: #FFFFFF; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: 0.3s; white-space: nowrap; }
         .newsletter-box .input-group button:hover { background: #E55A2B; }
 
-        /* ===== FOOTER - UPPER PART WHITE ===== */
+        /* ===== FOOTER - UPPER WHITE + BOTTOM COLORED ===== */
         .footer {
             background: #FFFFFF;
             padding: 50px 24px 0;
@@ -360,18 +360,26 @@
         }
         .footer-grid .location-col a:last-child:hover { color: var(--orange); }
 
-        /* ===== FOOTER BOTTOM - COMPLETE COLORED ===== */
+        /* ===== FOOTER BOTTOM - COLORED + SECRET ADMIN LINK TO LOGIN ===== */
         .footer-bottom {
-    background: var(--gradient);  /* ← YEH COLORED */
-    padding: 15px 24px;
-    margin: 30px -24px -30px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.9);
-}
+            background: var(--gradient);
+            padding: 15px 24px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.3);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .footer-bottom a:hover {
+            color: rgba(255,255,255,0.7);
+        }
+
         @media (max-width: 1024px) {
             .hero-content { grid-template-columns: 1fr; text-align: center; gap: 50px; }
             .hero-text p { margin: 0 auto 32px; }
@@ -469,7 +477,17 @@
         </div>
     </section>
 
-   
+    <!-- ===== CATEGORIES ===== -->
+    <section class="categories container">
+        <h2 class="section-title">Shop by <span class="highlight">Category</span></h2>
+        <p class="section-subtitle">Find the perfect gear for your sport</p>
+        <div class="categories-grid">
+            <div class="category-card"><span class="icon">🏃</span><h4>Running</h4><p id="catRunning">0 Products</p></div>
+            <div class="category-card"><span class="icon">🏋️</span><h4>Gym Wear</h4><p id="catGym">0 Products</p></div>
+            <div class="category-card"><span class="icon">⚽</span><h4>Football</h4><p id="catFootball">0 Products</p></div>
+            <div class="category-card"><span class="icon">🧘</span><h4>Yoga</h4><p id="catYoga">0 Products</p></div>
+        </div>
+    </section>
 
     <!-- ===== PRODUCTS ===== -->
     <section class="products container">
@@ -533,23 +551,16 @@
                     <i class="fas fa-map-marker-alt" style="color:var(--orange); margin-top:2px;"></i>
                     <span>Ganjianwali Kalan, P.o Khas Sialkot</span>
                 </a>
-                <!-- ===== SECRET ADMIN LINK (Invisible) ===== -->
-<div style="text-align:center; padding: 4px 0 0;">
-    <a href="admin-hafeez.html" style="display:inline-block; color:rgba(190, 27, 27, 0.03); font-size:0.2rem; text-decoration:none; padding:2px 8px; border-radius:10px; transition:0.3s; user-select:none;">
-        ⚙️
-    </a>
-</div>
+                <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:var(--orange); display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-globe" style="color:var(--orange);"></i> www.hafeezports.com
+                </a>
             </div>
         </div>
 
-        <!-- ===== FOOTER BOTTOM - COMPLETE COLORED ===== -->
-        <!-- ===== FOOTER BOTTOM - COLORED ===== -->
-<div class="footer-bottom">
-    <a href="admin-hafeez.html" style="color:inherit; text-decoration:none; display:inline-block;">
-        © 2022 HAFEEZ SPORTS
-    </a>
-    <span>Made with ❤ in Pakistan</span>
-</div>
+        <!-- ===== FOOTER BOTTOM - COLORED + SECRET ADMIN LINK TO LOGIN ===== -->
+        <div class="footer-bottom">
+            <a href="login.html">© 2022 HAFEEZ SPORTS</a>
+            <span>Made with ❤ in Pakistan</span>
         </div>
     </footer>
 
