@@ -574,13 +574,14 @@
 
     <script>
         // ============================================================
-        // ===== LOAD PRODUCTS FROM JSON FILE (Cache Busting) =====
+        // ===== LOAD PRODUCTS FROM JSON FILE (Double Cache Busting) =====
         // ============================================================
         async function loadProductsFromJSON() {
             try {
-                // Cache busting - har baar naya file load ho
+                // Double cache busting - har baar naya file load ho
                 const timestamp = new Date().getTime();
-                const response = await fetch(`products.json?t=${timestamp}`);
+                const random = Math.random().toString(36).substring(7);
+                const response = await fetch(`products.json?v=${timestamp}&r=${random}`);
                 if (!response.ok) throw new Error('JSON file not found');
                 const products = await response.json();
                 return products;
