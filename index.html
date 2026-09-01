@@ -208,9 +208,15 @@
         .section-title .highlight { color: var(--orange); }
         .section-subtitle { color: rgba(0,0,0,0.4); font-size: 1rem; font-weight: 300; margin-bottom: 40px; }
 
-        /* ===== CATEGORIES ===== */
+        /* ===== CATEGORIES - SIRF 2 ===== */
         .categories { padding: 80px 0; background: #F8FAFC; }
-        .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
         .category-card { background: #FFFFFF; border: 1px solid rgba(0,0,0,0.04); border-radius: 16px; padding: 30px 20px; text-align: center; transition: 0.4s; cursor: pointer; }
         .category-card:hover { background: #FFFFFF; border-color: var(--orange); transform: translateY(-6px); box-shadow: var(--shadow); }
         .category-card .icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
@@ -413,15 +419,13 @@
         </div>
     </section>
 
-    <!-- ===== CATEGORIES ===== -->
+    <!-- ===== CATEGORIES - SIRF 2 (FOOTBALL & GLOVES) ===== -->
     <section class="categories container">
         <h2 class="section-title">Shop by <span class="highlight">Category</span></h2>
         <p class="section-subtitle">Find the perfect gear for your sport</p>
         <div class="categories-grid">
-            <div class="category-card"><span class="icon">🏃</span><h4>Running</h4><p id="catRunning">0 Products</p></div>
-            <div class="category-card"><span class="icon">🏋️</span><h4>Gym Wear</h4><p id="catGym">0 Products</p></div>
             <div class="category-card"><span class="icon">⚽</span><h4>Football</h4><p id="catFootball">0 Products</p></div>
-            <div class="category-card"><span class="icon">🧘</span><h4>Yoga</h4><p id="catYoga">0 Products</p></div>
+            <div class="category-card"><span class="icon">🧤</span><h4>Gloves</h4><p id="catGloves">0 Products</p></div>
         </div>
     </section>
 
@@ -480,7 +484,7 @@
                 <h4>📍 Location</h4>
                 <a href="#" style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-size:0.85rem; line-height:1.5;">
                     <i class="fas fa-map-marker-alt" style="color:var(--orange); margin-top:2px;"></i>
-                    <span>Ganjianwali Kalan, P.o Khas Sialkot</span>
+                    <span>Ganjianwali Kalan, Ugoki, Sialkot</span>
                 </a>
                 <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:var(--orange); display:flex; align-items:center; gap:8px;">
                     <i class="fas fa-globe" style="color:var(--orange);"></i> www.hafeezports.com
@@ -533,17 +537,14 @@
             document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
         }
 
-        // ✅ FIXED: Price ko sahi tarah parse karein
         function addToCart(id, name, price, image) {
             let cart = getCart();
             const existing = cart.find(item => item.id === id);
             
-            // Price ko sahi tarah parse karein
             let priceNum = 0;
             if (typeof price === 'number') {
                 priceNum = price;
             } else if (typeof price === 'string') {
-                // ₨ 2,500 → 2500
                 priceNum = parseFloat(price.replace(/[₨,]/g, '').trim());
                 if (isNaN(priceNum)) priceNum = 0;
             }
@@ -556,7 +557,7 @@
                     name: name,
                     price: priceNum,
                     quantity: 1,
-                    image: image || 'product1.jpg'
+                    image: image || 'images/product1.jpg'
                 });
             }
             saveCart(cart);
@@ -591,19 +592,12 @@
                 categories[cat]++;
             });
 
+            // SIRF 2 CATEGORIES - Football & Gloves
             const catMap = {
-                'running': 'catRunning',
-                'gym wear': 'catGym',
-                'gym': 'catGym',
                 'football': 'catFootball',
-                'yoga': 'catYoga',
-                't-shirts': 'catRunning',
-                'bottoms': 'catGym',
-                'women': 'catYoga',
-                'shorts': 'catRunning',
-                'jerseys': 'catFootball',
-                'outerwear': 'catRunning',
-                'accessories': 'catGym'
+                'gloves': 'catGloves',
+                'goalkeeper gloves': 'catGloves',
+                'goalkeeper': 'catGloves'
             };
 
             Object.keys(categories).forEach(cat => {
@@ -658,5 +652,6 @@
 
         document.addEventListener('DOMContentLoaded', loadProducts);
     </script>
+
 </body>
 </html>
