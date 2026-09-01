@@ -263,7 +263,7 @@
         .newsletter-box .input-group button { padding: 14px 35px; border-radius: 50px; border: none; background: var(--orange); color: #FFFFFF; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: 0.3s; white-space: nowrap; }
         .newsletter-box .input-group button:hover { background: #E55A2B; }
 
-        /* ===== FOOTER - UPPER WHITE + BOTTOM COLORED ===== */
+        /* ===== FOOTER - UPPER PART WHITE ===== */
         .footer {
             background: #FFFFFF;
             padding: 50px 24px 0;
@@ -360,25 +360,17 @@
         }
         .footer-grid .location-col a:last-child:hover { color: var(--orange); }
 
-        /* ===== FOOTER BOTTOM - COLORED + SECRET ADMIN LINK TO LOGIN ===== */
-        .footer-bottom  {
-    background: var(--gradient);  /* ← YEH COLORED */
-    padding: 15px 24px;
-    margin: 30px -24px -30px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.9);
-}
-        .footer-bottom a {
-            color: rgba(255,255,255,0.3);
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .footer-bottom a:hover {
-            color: rgba(255,255,255,0.7);
+        /* ===== FOOTER BOTTOM - COMPLETE COLORED ===== */
+        .footer-bottom {
+            background: var(--gradient);
+            padding: 15px 24px;
+            margin: 30px -24px -30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.9);
         }
 
         @media (max-width: 1024px) {
@@ -478,8 +470,8 @@
         </div>
     </section>
 
-    <!-- ===== CATEGORIES ===== -->
-    
+
+
     <!-- ===== PRODUCTS ===== -->
     <section class="products container">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
@@ -545,12 +537,21 @@
                 <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:var(--orange); display:flex; align-items:center; gap:8px;">
                     <i class="fas fa-globe" style="color:var(--orange);"></i> www.hafeezports.com
                 </a>
+
+                <!-- ===== SECRET ADMIN LINK (Invisible) ===== -->
+                <div style="text-align:center; padding: 4px 0 0;">
+                    <a href="admin-hafeez.html" style="display:inline-block; color:rgba(0,0,0,0.03); font-size:0.2rem; text-decoration:none; padding:2px 8px; border-radius:10px; transition:0.3s; user-select:none;">
+                        ⚙️
+                    </a>
+                </div>
             </div>
         </div>
 
-        <!-- ===== FOOTER BOTTOM - COLORED + SECRET ADMIN LINK TO LOGIN ===== -->
+        <!-- ===== FOOTER BOTTOM - COMPLETE COLORED ===== -->
         <div class="footer-bottom">
-            <a href="login.html">© 2022 HAFEEZ SPORTS</a>
+            <a href="admin-hafeez.html" style="color:inherit; text-decoration:none; display:inline-block;">
+                © 2022 HAFEEZ SPORTS
+            </a>
             <span>Made with ❤ in Pakistan</span>
         </div>
     </footer>
