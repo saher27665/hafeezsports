@@ -169,7 +169,6 @@
         .footer-grid .location-col a:last-child { font-size: 0.85rem; color: rgba(0,0,0,0.5); }
         .footer-grid .location-col a:last-child:hover { color: var(--orange); }
 
-        /* ===== FOOTER BOTTOM - COMPLETE COLORED ===== */
         .footer-bottom {
             background: var(--gradient);
             padding: 15px 24px;
@@ -281,7 +280,6 @@
                 <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:var(--orange); display:flex; align-items:center; gap:8px;">
                     <i class="fas fa-globe" style="color:var(--orange);"></i> www.hafeezports.com
                 </a>
-                <!-- ===== SECRET ADMIN LINK (Invisible) ===== -->
                 <div style="text-align:center; padding: 4px 0 0;">
                     <a href="admin-hafeez.html" style="display:inline-block; color:rgba(0,0,0,0.03); font-size:0.2rem; text-decoration:none; padding:2px 8px; border-radius:10px; transition:0.3s; user-select:none;">⚙️</a>
                 </div>
@@ -292,9 +290,10 @@
             <span>Made with ❤ in Pakistan</span>
         </div>
     </footer>
+
     <script>
         // ============================================================
-        // ===== LOAD PRODUCTS FROM JSON FILE (Double Cache Busting) =====
+        // ===== LOAD PRODUCTS FROM JSON FILE (Cache Busting) =====
         // ============================================================
         async function loadProductsFromJSON() {
             try {
@@ -311,27 +310,62 @@
             }
         }
 
-        function getCart() { try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; } }
-        function saveCart(cart) { localStorage.setItem('hafeezCart', JSON.stringify(cart)); updateCartCount(); }
+        // ============================================================
+        // ===== CART SYSTEM - FIXED PRICE PARSING =====
+        // ============================================================
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('hafeezCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
         function updateCartCount() {
             const cart = getCart();
             const count = cart.reduce((sum, item) => sum + item.quantity, 0);
             document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
         }
+
+        // ✅ FIXED: Price ko sahi tarah parse karein
         function addToCart(id, name, price, image) {
             let cart = getCart();
             const existing = cart.find(item => item.id === id);
-            const priceNum = parseFloat(String(price).replace('$', '').replace(',', ''));
-            if (existing) { existing.quantity += 1; } 
-            else { cart.push({ id, name, price: priceNum, quantity: 1, image: image || 'images/product1.jpg' }); }
+            
+            let priceNum = 0;
+            if (typeof price === 'number') {
+                priceNum = price;
+            } else if (typeof price === 'string') {
+                priceNum = parseFloat(price.replace(/[₨,]/g, '').trim());
+                if (isNaN(priceNum)) priceNum = 0;
+            }
+            
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: priceNum,
+                    quantity: 1,
+                    image: image || 'images/product1.jpg'
+                });
+            }
             saveCart(cart);
-            alert(name + ' added to cart!');
+            alert(name + ' added to cart! 🛒');
         }
+
         function toggleWishlist(id) {
             let wishlist = JSON.parse(localStorage.getItem('hafeezWishlist') || '[]');
             const index = wishlist.indexOf(id);
-            if (index > -1) { wishlist.splice(index, 1); alert('Removed from wishlist'); } 
-            else { wishlist.push(id); alert('Added to wishlist!'); }
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                alert('Removed from wishlist');
+            } else {
+                wishlist.push(id);
+                alert('Added to wishlist!');
+            }
             localStorage.setItem('hafeezWishlist', JSON.stringify(wishlist));
         }
 
@@ -370,8 +404,8 @@
         document.getElementById('sortSelect').addEventListener('change', function() {
             const value = this.value;
             let sorted = [...allProducts];
-            if (value === 'price-low') { sorted.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', ''))); }
-            else if (value === 'price-high') { sorted.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', ''))); }
+            if (value === 'price-low') { sorted.sort((a, b) => parseFloat(a.price.replace(/[₨,]/g, '').trim()) - parseFloat(b.price.replace(/[₨,]/g, '').trim())); }
+            else if (value === 'price-high') { sorted.sort((a, b) => parseFloat(b.price.replace(/[₨,]/g, '').trim()) - parseFloat(a.price.replace(/[₨,]/g, '').trim())); }
             else if (value === 'name') { sorted.sort((a, b) => a.name.localeCompare(b.name)); }
             renderProducts(sorted);
         });
