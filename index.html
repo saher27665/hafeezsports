@@ -538,8 +538,15 @@
             let cart = getCart();
             const existing = cart.find(item => item.id === id);
             
-            // Price ko sahi tarah parse karein (₨ aur commas hatao)
-            const priceNum = parseFloat(String(price).replace(/[₨,]/g, '').trim());
+            // Price ko sahi tarah parse karein
+            let priceNum = 0;
+            if (typeof price === 'number') {
+                priceNum = price;
+            } else if (typeof price === 'string') {
+                // ₨ 2,500 → 2500
+                priceNum = parseFloat(price.replace(/[₨,]/g, '').trim());
+                if (isNaN(priceNum)) priceNum = 0;
+            }
             
             if (existing) {
                 existing.quantity += 1;
@@ -549,7 +556,7 @@
                     name: name,
                     price: priceNum,
                     quantity: 1,
-                    image: image || 'images/product1.jpg'
+                    image: image || 'product1.jpg'
                 });
             }
             saveCart(cart);
@@ -651,6 +658,5 @@
 
         document.addEventListener('DOMContentLoaded', loadProducts);
     </script>
-
 </body>
 </html>
