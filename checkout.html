@@ -136,11 +136,12 @@
         .success-message h2 { margin: 16px 0 8px; color: var(--dark); }
         .success-message p { color: rgba(0,0,0,0.4); }
 
-        /* ===== FOOTER - COMPLETE COLORED ===== */
+        /* ===== FOOTER - UPPER PART WHITE ===== */
         .footer {
-            background: var(--gradient);
-            padding: 50px 24px 30px;
-            color: #FFFFFF;
+            background: #FFFFFF;
+            padding: 50px 24px 0;
+            color: var(--dark);
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
         .footer-grid {
             display: grid;
@@ -148,40 +149,44 @@
             gap: 30px;
             max-width: 1280px;
             margin: 0 auto;
+            padding-bottom: 30px;
         }
-        .footer-grid .brand h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #FFFFFF; }
-        .footer-grid .brand h3 .highlight { color: #FFFFFF; }
-        .footer-grid .brand p { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 12px 0 8px; max-width: 300px; line-height: 1.8; }
+        .footer-grid .brand h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--dark); }
+        .footer-grid .brand h3 .highlight { color: var(--orange); }
+        .footer-grid .brand p { color: rgba(0,0,0,0.5); font-size: 0.9rem; margin: 12px 0 8px; max-width: 300px; line-height: 1.8; }
         .footer-grid .brand .social-icons { display: flex; gap: 12px; margin-top: 12px; }
-        .footer-grid .brand .social-icons a {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            display: flex; align-items: center; justify-content: center;
-            color: #FFFFFF; transition: 0.3s; text-decoration: none;
-        }
-        .footer-grid .brand .social-icons a:hover { background: #FFFFFF; color: var(--orange); transform: translateY(-3px); }
-        .footer-grid .col h4 { font-size: 1rem; font-weight: 600; color: #FFFFFF; margin-bottom: 16px; }
-        .footer-grid .col a {
-            display: flex; align-items: center; gap: 8px;
-            color: rgba(255,255,255,0.85); text-decoration: none;
-            font-size: 0.9rem; margin-bottom: 10px; transition: 0.3s;
-        }
-        .footer-grid .col a:hover { color: #FFFFFF; }
+        .footer-grid .brand .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: #F5F7FA; display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
+        .footer-grid .brand .social-icons a:hover { background: var(--orange); color: #FFFFFF; transform: translateY(-3px); }
+        .footer-grid .col h4 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 16px; }
+        .footer-grid .col a { display: flex; align-items: center; gap: 8px; color: rgba(0,0,0,0.4); text-decoration: none; font-size: 0.9rem; margin-bottom: 10px; transition: 0.3s; }
+        .footer-grid .col a:hover { color: var(--orange); }
         .footer-grid .col a i { width: 20px; text-align: center; flex-shrink: 0; }
-        .footer-grid .location-col a {
-            display: flex; align-items: flex-start; gap: 8px;
-            margin-bottom: 6px; color: rgba(255,255,255,0.85);
-        }
+        .footer-grid .location-col a { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; color: rgba(0,0,0,0.4); }
         .footer-grid .location-col a i { width: 20px; text-align: center; margin-top: 2px; flex-shrink: 0; }
         .footer-grid .location-col a span { line-height: 1.5; }
-        .footer-grid .location-col a:first-child { font-weight: 600; color: #FFFFFF; }
-        .footer-grid .location-col a:last-child { font-size: 0.85rem; color: rgba(255,255,255,0.85); }
-        .footer-grid .location-col a:last-child:hover { color: #FFFFFF; }
+        .footer-grid .location-col a:first-child { font-weight: 600; color: var(--orange); }
+        .footer-grid .location-col a:first-child:hover { color: #E55A2B; }
+        .footer-grid .location-col a:last-child { font-size: 0.85rem; color: rgba(0,0,0,0.5); }
+        .footer-grid .location-col a:last-child:hover { color: var(--orange); }
+
         .footer-bottom {
-            max-width: 1280px; margin: 40px auto 0;
-            padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 0.8rem; color: rgba(255,255,255,0.7);
+            background: var(--gradient);
+            padding: 15px 24px;
+            margin: 30px -24px -30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .footer-bottom a:hover {
+            color: rgba(255,255,255,1);
         }
 
         @media (max-width: 1024px) { .checkout-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
@@ -298,45 +303,40 @@
             </div>
             <div class="col">
                 <h4>Contact</h4>
-                <a href="mailto:hafeezsports1984@gmail.com"><i class="fas fa-envelope"></i> hafeezsports1984@gmail.com</a>
-                <a href="tel:+923006111120"><i class="fas fa-phone"></i> +92-300-6111120</a>
-                <a href="tel:+923350611120"><i class="fas fa-mobile-alt"></i> +92-335-0611120</a>
+                <a href="mailto:hafeezsports1984@gmail.com"><i class="fas fa-envelope" style="color:var(--orange);"></i> hafeezsports1984@gmail.com</a>
+                <a href="tel:+923006111120"><i class="fas fa-phone" style="color:var(--orange);"></i> +92-300-6111120</a>
+                <a href="tel:+923350611120"><i class="fas fa-mobile-alt" style="color:var(--orange);"></i> +92-335-0611120</a>
             </div>
             <div class="col location-col">
                 <h4>📍 Location</h4>
                 <a href="#" style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-size:0.85rem; line-height:1.5;">
-                    <i class="fas fa-map-marker-alt" style="margin-top:2px;"></i>
+                    <i class="fas fa-map-marker-alt" style="color:var(--orange); margin-top:2px;"></i>
                     <span>Ganjianwali Kalan, P.o Khas Sialkot</span>
                 </a>
-                <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; display:flex; align-items:center; gap:8px;">
-                    <i class="fas fa-globe"></i> www.hafeezports.com
+                <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:var(--orange); display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-globe" style="color:var(--orange);"></i> www.hafeezports.com
                 </a>
+                <div style="text-align:center; padding: 4px 0 0;">
+                    <a href="admin-hafeez.html" style="display:inline-block; color:rgba(0,0,0,0.03); font-size:0.2rem; text-decoration:none; padding:2px 8px; border-radius:10px; transition:0.3s; user-select:none;">⚙️</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2022 HAFEEZ SPORTS</span>
+            <a href="admin-hafeez.html">© 2022 HAFEEZ SPORTS</a>
             <span>Made with ❤ in Pakistan</span>
         </div>
     </footer>
-    <script>
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            const links = document.querySelector('.nav-links');
-            if (links.style.display === 'flex') { links.style.display = 'none'; } else {
-                links.style.display = 'flex';
-                links.style.flexDirection = 'column';
-                links.style.position = 'absolute';
-                links.style.top = '70px';
-                links.style.left = '0';
-                links.style.right = '0';
-                links.style.background = 'rgba(255,107,53,0.95)';
-                links.style.padding = '20px 24px';
-                links.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
-                links.style.gap = '12px';
-            }
-        });
 
-        function getCart() { try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; } }
-        function saveCart(cart) { localStorage.setItem('hafeezCart', JSON.stringify(cart)); updateCartCount(); }
+    <script>
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('hafeezCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
         function updateCartCount() {
             const cart = getCart();
             const count = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -348,6 +348,7 @@
             const container = document.getElementById('orderItems');
             const totalEl = document.getElementById('orderTotal');
             const orderBtn = document.getElementById('placeOrderBtn');
+
             if (cart.length === 0) {
                 container.innerHTML = `<p style="color:rgba(0,0,0,0.4);">Your cart is empty. <a href="shop.html" style="color:var(--orange);">Shop now</a></p>`;
                 totalEl.textContent = '0.00';
@@ -356,57 +357,80 @@
                 orderBtn.style.cursor = 'not-allowed';
                 return;
             }
+
             orderBtn.disabled = false;
             orderBtn.style.opacity = '1';
             orderBtn.style.cursor = 'pointer';
+
             let subtotal = 0;
             container.innerHTML = cart.map(item => {
                 const itemTotal = item.price * item.quantity;
                 subtotal += itemTotal;
                 return `<div class="summary-item"><span class="item-name">${item.icon || '📦'} ${item.name} × ${item.quantity}</span><span class="item-price">${itemTotal.toFixed(2)}</span></div>`;
             }).join('');
+
             const shipping = subtotal > 0 ? 5.00 : 0;
             const tax = subtotal * 0.1;
             const grandTotal = subtotal + shipping + tax;
-            container.innerHTML += `<div class="summary-item"><span class="item-name">Shipping</span><span class="item-price">${shipping.toFixed(2)}</span></div>
-                <div class="summary-item"><span class="item-name">Tax (10%)</span><span class="item-price">${tax.toFixed(2)}</span></div>`;
+
+            container.innerHTML += `
+                <div class="summary-item"><span class="item-name">Shipping</span><span class="item-price">${shipping.toFixed(2)}</span></div>
+                <div class="summary-item"><span class="item-name">Tax (10%)</span><span class="item-price">${tax.toFixed(2)}</span></div>
+            `;
+
             totalEl.textContent = grandTotal.toFixed(2);
             updateCartCount();
         }
 
         function placeOrder(e) {
             e.preventDefault();
+
             const cart = getCart();
-            if (cart.length === 0) { alert('Your cart is empty!'); return false; }
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return false;
+            }
+
             const name = document.getElementById('fullName').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const address = document.getElementById('address').value.trim();
             const city = document.getElementById('city').value.trim();
             const country = document.getElementById('country').value;
+
             if (!name || !email || !phone || !address || !city || !country) {
                 alert('⚠️ Please fill all required fields!');
                 return false;
             }
+
             let subtotal = 0;
             cart.forEach(item => { subtotal += item.price * item.quantity; });
             const shipping = 5.00;
             const tax = subtotal * 0.1;
             const grandTotal = subtotal + shipping + tax;
+
             const order = {
-                customerName: name, email, phone,
+                customerName: name,
+                email: email,
+                phone: phone,
                 address: address + ', ' + city + ', ' + country,
                 items: cart.map(item => item.name + ' × ' + item.quantity).join(', '),
-                total: grandTotal.toFixed(2), status: 'Pending',
-                date: new Date().toLocaleString(), paymentMethod: 'Cash on Delivery'
+                total: grandTotal.toFixed(2),
+                status: 'Pending',
+                date: new Date().toLocaleString(),
+                paymentMethod: 'Cash on Delivery'
             };
+
             const orders = JSON.parse(localStorage.getItem('hafeezOrders') || '[]');
             orders.push(order);
             localStorage.setItem('hafeezOrders', JSON.stringify(orders));
+
             saveCart([]);
+
             document.getElementById('checkoutContent').style.display = 'none';
             document.getElementById('orderSuccess').style.display = 'block';
             document.getElementById('orderNumber').textContent = 'HS-' + String(orders.length).padStart(4, '0');
+
             updateCartCount();
             return false;
         }
