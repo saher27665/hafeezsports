@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "HAFEEZ SPORTS - Pro Football",
+        "category": "Football",
+        "price": "₨ 3,500",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (2).jpeg",
+        "desc": "Professional grade football with superior grip and control. Perfect for competitive matches.",
+        "available": true
+    },
+    {
+        "id": 2,
+        "name": "HAFEEZ SPORTS - Classic Football",
+        "category": "Football",
+        "price": "₨ 2,200",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (3).jpeg",
+        "desc": "Classic design football with durable construction. Ideal for recreational play.",
+        "available": true
+    },
+    {
+        "id": 3,
+        "name": "HAFEEZ SPORTS - Match Handsewn Football",
+        "category": "Football",
+        "price": "₨ 2,800",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (6).jpeg",
+        "desc": "Premium handsewn match football. FIFA quality approved for professional matches.",
+        "available": true
+    },
+    {
+        "id": 4,
+        "name": "HAFEEZ SPORTS - Handsewn Match Ball",
+        "category": "Football",
+        "price": "₨ 2,500",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (7).jpeg",
+        "desc": "High-quality handsewn football. Durable and weather resistant for all conditions.",
+        "available": true
+    },
+    {
+        "id": 5,
+        "name": "HAFEEZ SPORTS - Hybrid Pro Football",
+        "category": "Football",
+        "price": "₨ 3,800",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (9).jpeg",
+        "desc": "Hybrid technology football with FIFA quality. Advanced grip for superior performance.",
+        "available": true
+    },
+    {
+        "id": 6,
+        "name": "HAFEEZ SPORTS - Elite Football",
+        "category": "Football",
+        "price": "₨ 4,200",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (10).jpeg",
+        "desc": "Elite professional football. Premium hand-stitched quality for competitive matches.",
+        "available": true
+    },
+    {
+        "id": 7,
+        "name": "HAFEEZ SPORTS - Training Football",
+        "category": "Football",
+        "price": "₨ 1,800",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (12).jpeg",
+        "desc": "High-quality training football. Perfect for practice sessions and junior players.",
+        "available": true
+    },
+    {
+        "id": 8,
+        "name": "HAFEEZ SPORTS - Hybrid Match Ball",
+        "category": "Football",
+        "price": "₨ 3,200",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (16).jpeg",
+        "desc": "Hybrid match football with FIFA approval. Superior control and durability.",
+        "available": true
+    },
+    {
+        "id": 9,
+        "name": "HAFEEZ SPORTS - Premium Football",
+        "category": "Football",
+        "price": "₨ 2,900",
+        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (17).jpeg",
+        "desc": "Premium quality football with advanced technology. Suitable for all weather conditions.",
+        "available": true
+    }
+]
