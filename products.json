@@ -8,15 +8,7 @@
         "desc": "Professional grade football with superior grip and control. Perfect for competitive matches.",
         "available": true
     },
-    {
-        "id": 2,
-        "name": "HAFEEZ SPORTS - Classic Football",
-        "category": "Football",
-        "price": "₨ 2,200",
-        "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (3).jpeg",
-        "desc": "Classic design football with durable construction. Ideal for recreational play.",
-        "available": true
-    },
+   
     {
         "id": 3,
         "name": "HAFEEZ SPORTS - Match Handsewn Football",
@@ -46,8 +38,8 @@
     },
     {
         "id": 6,
-        "name": "HAFEEZ SPORTS - Elite Football",
-        "category": "Football",
+        "name": "HAFEEZ SPORTS - Elite Gloves",
+        "category": "Gloves",
         "price": "₨ 4,200",
         "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (10).jpeg",
         "desc": "Elite professional football. Premium hand-stitched quality for competitive matches.",
@@ -73,8 +65,8 @@
     },
     {
         "id": 9,
-        "name": "HAFEEZ SPORTS - Premium Football",
-        "category": "Football",
+        "name": "HAFEEZ SPORTS - Premium Gloves",
+        "category": "Gloves",
         "price": "₨ 2,900",
         "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (17).jpeg",
         "desc": "Premium quality football with advanced technology. Suitable for all weather conditions.",
