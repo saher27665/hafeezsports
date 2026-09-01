@@ -365,8 +365,8 @@
 
             cart.forEach((item, index) => {
                 // ✅ FIX: price null/undefined ho toh 0 set karein
-                const price = item.price || 0;
-                const quantity = item.quantity || 1;
+                const price = (typeof item.price === 'number' && !isNaN(item.price)) ? item.price : 0;
+                const quantity = (typeof item.quantity === 'number' && !isNaN(item.quantity)) ? item.quantity : 1;
                 const itemTotal = price * quantity;
                 subtotal += itemTotal;
 
