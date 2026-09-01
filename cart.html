@@ -16,10 +16,9 @@
             --gradient: linear-gradient(135deg, #FF6B35, #2196F3, #4CAF50);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-        /* ===== NAVBAR - COMPLETE COLORED ===== */
         .navbar {
             background: var(--gradient);
             padding: 12px 24px;
@@ -32,9 +31,7 @@
             right: 0;
             z-index: 9999;
             box-shadow: 0 4px 30px rgba(0,0,0,0.15);
-            transition: 0.3s;
         }
-        .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.2); }
         .navbar .logo {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 2rem;
@@ -118,6 +115,7 @@
         }
         .cart-item .item-image { width: 80px; height: 80px; background: #F5F7FA; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.04); overflow: hidden; }
         .cart-item .item-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+        .cart-item .item-image .icon-fallback { font-size: 2.5rem; }
         .cart-item .item-details { flex: 1; }
         .cart-item .item-details h4 { font-size: 1rem; font-weight: 600; color: var(--dark); }
         .cart-item .item-details .category { font-size: 0.75rem; color: rgba(0,0,0,0.3); }
@@ -145,11 +143,11 @@
         .empty-cart .btn-primary { display: inline-block; margin-top: 20px; padding: 12px 40px; background: var(--dark); color: #FFFFFF; border: none; border-radius: 50px; font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: 0.3s; text-decoration: none; }
         .empty-cart .btn-primary:hover { background: var(--orange); transform: translateY(-2px); }
 
-        /* ===== FOOTER - COMPLETE COLORED ===== */
         .footer {
-            background: var(--gradient);
-            padding: 50px 24px 30px;
-            color: #FFFFFF;
+            background: #FFFFFF;
+            padding: 50px 24px 0;
+            color: var(--dark);
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
         .footer-grid {
             display: grid;
@@ -157,40 +155,44 @@
             gap: 30px;
             max-width: 1280px;
             margin: 0 auto;
+            padding-bottom: 30px;
         }
-        .footer-grid .brand h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #FFFFFF; }
-        .footer-grid .brand h3 .highlight { color: #FFFFFF; }
-        .footer-grid .brand p { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin: 12px 0 8px; max-width: 300px; line-height: 1.8; }
+        .footer-grid .brand h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--dark); }
+        .footer-grid .brand h3 .highlight { color: var(--orange); }
+        .footer-grid .brand p { color: rgba(0,0,0,0.5); font-size: 0.9rem; margin: 12px 0 8px; max-width: 300px; line-height: 1.8; }
         .footer-grid .brand .social-icons { display: flex; gap: 12px; margin-top: 12px; }
-        .footer-grid .brand .social-icons a {
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(255,255,255,0.15);
-            display: flex; align-items: center; justify-content: center;
-            color: #FFFFFF; transition: 0.3s; text-decoration: none;
-        }
-        .footer-grid .brand .social-icons a:hover { background: #FFFFFF; color: var(--orange); transform: translateY(-3px); }
-        .footer-grid .col h4 { font-size: 1rem; font-weight: 600; color: #FFFFFF; margin-bottom: 16px; }
-        .footer-grid .col a {
-            display: flex; align-items: center; gap: 8px;
-            color: rgba(255,255,255,0.85); text-decoration: none;
-            font-size: 0.9rem; margin-bottom: 10px; transition: 0.3s;
-        }
-        .footer-grid .col a:hover { color: #FFFFFF; }
+        .footer-grid .brand .social-icons a { width: 40px; height: 40px; border-radius: 50%; background: #F5F7FA; display: flex; align-items: center; justify-content: center; color: rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
+        .footer-grid .brand .social-icons a:hover { background: var(--orange); color: #FFFFFF; transform: translateY(-3px); }
+        .footer-grid .col h4 { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 16px; }
+        .footer-grid .col a { display: flex; align-items: center; gap: 8px; color: rgba(0,0,0,0.4); text-decoration: none; font-size: 0.9rem; margin-bottom: 10px; transition: 0.3s; }
+        .footer-grid .col a:hover { color: var(--orange); }
         .footer-grid .col a i { width: 20px; text-align: center; flex-shrink: 0; }
-        .footer-grid .location-col a {
-            display: flex; align-items: flex-start; gap: 8px;
-            margin-bottom: 6px; color: rgba(255,255,255,0.85);
-        }
+        .footer-grid .location-col a { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; color: rgba(0,0,0,0.4); }
         .footer-grid .location-col a i { width: 20px; text-align: center; margin-top: 2px; flex-shrink: 0; }
         .footer-grid .location-col a span { line-height: 1.5; }
-        .footer-grid .location-col a:first-child { font-weight: 600; color: #FFFFFF; }
-        .footer-grid .location-col a:last-child { font-size: 0.85rem; color: rgba(255,255,255,0.85); }
-        .footer-grid .location-col a:last-child:hover { color: #FFFFFF; }
+        .footer-grid .location-col a:first-child { font-weight: 600; color: var(--orange); }
+        .footer-grid .location-col a:first-child:hover { color: #E55A2B; }
+        .footer-grid .location-col a:last-child { font-size: 0.85rem; color: rgba(0,0,0,0.5); }
+        .footer-grid .location-col a:last-child:hover { color: var(--orange); }
+
         .footer-bottom {
-            max-width: 1280px; margin: 40px auto 0;
-            padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 0.8rem; color: rgba(255,255,255,0.7);
+            background: var(--gradient);
+            padding: 15px 24px;
+            margin: 30px -24px -30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .footer-bottom a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .footer-bottom a:hover {
+            color: rgba(255,255,255,1);
         }
 
         @media (max-width: 1024px) { .cart-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
@@ -217,6 +219,8 @@
     </style>
 </head>
 <body>
+
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar">
         <a href="index.html" class="logo">HAFEEZ<span class="brand">SPORTS</span></a>
         <div class="nav-links">
@@ -231,25 +235,31 @@
             <button class="hamburger"><span></span><span></span><span></span></button>
         </div>
     </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
     <div class="page-header">
         <h1>Shopping <span class="highlight">Cart</span></h1>
         <p>Review your items before checkout</p>
     </div>
+
+    <!-- ===== CART SECTION ===== -->
     <section class="cart-section container">
         <div class="cart-grid">
             <div><div id="cartItems"></div></div>
             <div>
                 <div class="cart-summary" id="cartSummary">
                     <h3>Order Summary</h3>
-                    <div class="summary-row"><span class="label">Subtotal</span><span class="value" id="subtotal">0.00</span></div>
-                    <div class="summary-row"><span class="label">Shipping</span><span class="value" id="shipping">5.00</span></div>
-                    <div class="summary-row"><span class="label">Tax (10%)</span><span class="value" id="tax">0.00</span></div>
-                    <div class="summary-row total"><span class="label">Total</span><span class="value" id="total">0.00</span></div>
+                    <div class="summary-row"><span class="label">Subtotal</span><span class="value" id="subtotal">₨ 0.00</span></div>
+                    <div class="summary-row"><span class="label">Shipping</span><span class="value" id="shipping">₨ 5.00</span></div>
+                    <div class="summary-row"><span class="label">Tax (10%)</span><span class="value" id="tax">₨ 0.00</span></div>
+                    <div class="summary-row total"><span class="label">Total</span><span class="value" id="total">₨ 0.00</span></div>
                     <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-grid">
             <div class="brand">
@@ -272,30 +282,152 @@
             </div>
             <div class="col">
                 <h4>Contact</h4>
-                <a href="mailto:hafeezsports1984@gmail.com"><i class="fas fa-envelope"></i> hafeezsports1984@gmail.com</a>
-                <a href="tel:+923006111120"><i class="fas fa-phone"></i> +92-300-6111120</a>
-                <a href="tel:+923350611120"><i class="fas fa-mobile-alt"></i> +92-335-0611120</a>
+                <a href="mailto:hafeezsports1984@gmail.com"><i class="fas fa-envelope" style="color:var(--orange);"></i> hafeezsports1984@gmail.com</a>
+                <a href="tel:+923006111120"><i class="fas fa-phone" style="color:var(--orange);"></i> +92-300-6111120</a>
+                <a href="tel:+923350611120"><i class="fas fa-mobile-alt" style="color:var(--orange);"></i> +92-335-0611120</a>
             </div>
             <div class="col location-col">
                 <h4>📍 Location</h4>
                 <a href="#" style="display:flex; align-items:flex-start; gap:8px; margin-top:6px; font-size:0.85rem; line-height:1.5;">
-                    <i class="fas fa-map-marker-alt" style="margin-top:2px;"></i>
+                    <i class="fas fa-map-marker-alt" style="color:var(--orange); margin-top:2px;"></i>
                     <span>Ganjianwali Kalan, P.o Khas Sialkot</span>
                 </a>
-                <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; display:flex; align-items:center; gap:8px;">
-                    <i class="fas fa-globe"></i> www.hafeezports.com
+                <a href="https://www.hafeezports.com" target="_blank" style="font-weight:600; color:var(--orange); display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-globe" style="color:var(--orange);"></i> www.hafeezports.com
                 </a>
+                <div style="text-align:center; padding: 4px 0 0;">
+                    <a href="admin-hafeez.html" style="display:inline-block; color:rgba(0,0,0,0.03); font-size:0.2rem; text-decoration:none; padding:2px 8px; border-radius:10px; transition:0.3s; user-select:none;">⚙️</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2022 HAFEEZ SPORTS</span>
+            <a href="admin-hafeez.html">© 2022 HAFEEZ SPORTS</a>
             <span>Made with ❤ in Pakistan</span>
         </div>
     </footer>
+
     <script>
+        // ============================================================
+        // ===== CART SYSTEM - DIRECT LOCALSTORAGE =====
+        // ============================================================
+        function getCart() {
+            try { 
+                const data = localStorage.getItem('hafeezCart');
+                if (data) {
+                    return JSON.parse(data);
+                }
+                return [];
+            } catch(e) { 
+                console.log('Error loading cart:', e);
+                return []; 
+            }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('hafeezCart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
+        }
+
+        // ============================================================
+        // ===== RENDER CART =====
+        // ============================================================
+        function renderCart() {
+            const cart = getCart();
+            const container = document.getElementById('cartItems');
+            const summary = document.getElementById('cartSummary');
+
+            console.log('🛒 Cart Items:', cart);
+            console.log('📦 Cart Count:', cart.length);
+
+            if (!cart || cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added any items yet.</p>
+                        <a href="shop.html" class="btn-primary">Start Shopping</a>
+                    </div>
+                `;
+                summary.style.display = 'none';
+                return;
+            }
+
+            summary.style.display = 'block';
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+
+                const imageHtml = item.image 
+                    ? `<img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'icon-fallback\\'>📦</span>';" />`
+                    : `<span class="icon-fallback">📦</span>`;
+
+                html += `
+                    <div class="cart-item">
+                        <div class="item-image">${imageHtml}</div>
+                        <div class="item-details">
+                            <h4>${item.name}</h4>
+                            <div class="category">Sportswear</div>
+                            <div class="price">₨ ${item.price.toFixed(2)}</div>
+                        </div>
+                        <div class="item-quantity">
+                            <button onclick="updateQuantity(${index}, -1)">−</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(${index})"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            const shipping = 5.00;
+            const tax = subtotal * 0.1;
+            const total = subtotal + shipping + tax;
+
+            document.getElementById('subtotal').textContent = '₨ ' + subtotal.toFixed(2);
+            document.getElementById('shipping').textContent = '₨ ' + shipping.toFixed(2);
+            document.getElementById('tax').textContent = '₨ ' + tax.toFixed(2);
+            document.getElementById('total').textContent = '₨ ' + total.toFixed(2);
+        }
+
+        // ============================================================
+        // ===== UPDATE QUANTITY & REMOVE =====
+        // ============================================================
+        function updateQuantity(index, change) {
+            let cart = getCart();
+            if (!cart || cart.length === 0) return;
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCart(cart);
+        }
+
+        function removeItem(index) {
+            let cart = getCart();
+            if (!cart || cart.length === 0) return;
+            cart.splice(index, 1);
+            saveCart(cart);
+        }
+
+        // ============================================================
+        // ===== NAVBAR =====
+        // ============================================================
         window.addEventListener('scroll', function() {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
+
         document.querySelector('.hamburger').addEventListener('click', function() {
             const links = document.querySelector('.nav-links');
             if (links.style.display === 'flex') { links.style.display = 'none'; } else {
@@ -312,85 +444,11 @@
             }
         });
 
-        function getCart() { try { return JSON.parse(localStorage.getItem('hafeezCart') || '[]'); } catch(e) { return []; } }
-        function saveCart(cart) { localStorage.setItem('hafeezCart', JSON.stringify(cart)); updateCartCount(); }
-        function updateCartCount() {
-            const cart = getCart();
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
-        }
-
-        function renderCart() {
-            const cart = getCart();
-            const container = document.getElementById('cartItems');
-            const subtotalEl = document.getElementById('subtotal');
-            const totalEl = document.getElementById('total');
-            const summary = document.getElementById('cartSummary');
-
-            if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-cart">
-                        <i class="fas fa-shopping-bag"></i>
-                        <h3>Your cart is empty</h3>
-                        <p>Looks like you haven't added any items yet.</p>
-                        <a href="shop.html" class="btn-primary">Start Shopping</a>
-                    </div>
-                `;
-                summary.style.display = 'none';
-                return;
-            }
-            summary.style.display = 'block';
-            let html = '';
-            let subtotal = 0;
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
-                const imageHtml = item.image 
-                    ? `<img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'icon-fallback\\'>${item.icon || '📦'}</span>';" />`
-                    : `<span class="icon-fallback">${item.icon || '📦'}</span>`;
-                html += `
-                    <div class="cart-item">
-                        <div class="item-image">${imageHtml}</div>
-                        <div class="item-details">
-                            <h4>${item.name}</h4>
-                            <div class="category">Sportswear</div>
-                            <div class="price">${item.price.toFixed(2)}</div>
-                        </div>
-                        <div class="item-quantity">
-                            <button onclick="updateQuantity(${index}, -1)">−</button>
-                            <span>${item.quantity}</span>
-                            <button onclick="updateQuantity(${index}, 1)">+</button>
-                        </div>
-                        <button class="remove-btn" onclick="removeItem(${index})"><i class="fas fa-trash"></i></button>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-            const shipping = 5.00;
-            const tax = subtotal * 0.1;
-            const total = subtotal + shipping + tax;
-            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
-            document.getElementById('shipping').textContent = shipping.toFixed(2);
-            document.getElementById('tax').textContent = tax.toFixed(2);
-            document.getElementById('total').textContent = total.toFixed(2);
-        }
-
-        function updateQuantity(index, change) {
-            let cart = getCart();
-            cart[index].quantity += change;
-            if (cart[index].quantity <= 0) { cart.splice(index, 1); }
-            saveCart(cart);
-            renderCart();
-            updateCartCount();
-        }
-        function removeItem(index) {
-            let cart = getCart();
-            cart.splice(index, 1);
-            saveCart(cart);
-            renderCart();
-            updateCartCount();
-        }
+        // ============================================================
+        // ===== INIT =====
+        // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Cart page loaded');
             renderCart();
             updateCartCount();
         });
