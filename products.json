@@ -1,15 +1,195 @@
 [
+  {
+    "id": 1,
+    "name": "HAFEEZ SPORTS - Match Football",
+    "category": "Football",
+    "price": "₨ 2,500",
+    "image": "p1.jpeg",
+    "desc": "Professional-style white football with colorful geometric detailing, HAFEEZ SPORTS branding and hand-sewn construction. Suitable for match play and regular training.",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "HAFEEZ SPORTS - Boxing Gloves Red",
+    "category": "Boxing",
+    "price": "₨ 3,500",
+    "image": "p2.jpeg",
+    "desc": "Bright red boxing gloves featuring HAFEEZ SPORTS branding, padded construction and secure wrist straps. Suitable for boxing training, fitness and sparring.",
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "HAFEEZ SPORTS - MMA Gloves Blue & Black",
+    "category": "MMA",
+    "price": "₨ 3,000",
+    "image": "p3.jpeg",
+    "desc": "Blue and black MMA training gloves with padded knuckle protection, open-finger design and secure wrist support. Ideal for MMA and combat training.",
+    "available": true
+  },
+  {
+    "id": 4,
+    "name": "HAFEEZ SPORTS - Pro Football Pink",
+    "category": "Football",
+    "price": "₨ 2,800",
+    "image": "p4.jpeg",
+    "desc": "White football featuring bold pink and black graphics with HAFEEZ SPORTS branding. Designed for training, recreational games and regular outdoor play.",
+    "available": true
+  },
+  {
+    "id": 5,
+    "name": "HAFEEZ SPORTS - Pro Football Green",
+    "category": "Football",
+    "price": "₨ 3,000",
+    "image": "p5.jpeg",
+    "desc": "Premium-style white football with vibrant green, blue and grey detailing and HAFEEZ SPORTS PRO branding. A stylish option for competitive training and matches.",
+    "available": true
+  },
+  {
+    "id": 6,
+    "name": "HAFEEZ SPORTS - Match Football Orange",
+    "category": "Football",
+    "price": "₨ 2,700",
+    "image": "p6.jpeg",
+    "desc": "High-visibility orange and neon yellow football with a hand-sewn construction. Designed for training, match practice and recreational outdoor play.",
+    "available": true
+  },
+  {
+    "id": 7,
+    "name": "HAFEEZ SPORTS - Training Football",
+    "category": "Football",
+    "price": "₨ 2,200",
+    "image": "p7.jpeg",
+    "desc": "Classic white training football with black and red graphic panels and HAFEEZ SPORTS branding. Suitable for daily football practice and training sessions.",
+    "available": true
+  },
+  {
+    "id": 8,
+    "name": "HAFEEZ SPORTS - Elite Football",
+    "category": "Football",
+    "price": "₨ 3,200",
+    "image": "p8.jpeg",
+    "desc": "Modern white football featuring blue and yellow geometric graphics with HAFEEZ SPORTS branding. Designed for players looking for a stylish and durable training ball.",
+    "available": true
+  },
+  {
+    "id": 9,
+    "name": "HAFEEZ SPORTS - Classic Football",
+    "category": "Football",
+    "price": "₨ 2,000",
+    "image": "p9.jpeg",
+    "desc": "Classic black and white football featuring the HAFEEZ SPORTS branding. A simple and versatile choice for practice and recreational play.",
+    "available": true
+  },
+  {
+    "id": 10,
+    "name": "HAFEEZ SPORTS - Hand Sewn Match Football",
+    "category": "Football",
+    "price": "₨ 2,500",
+    "image": "p10.jpeg",
+    "desc": "Classic black and white hand-sewn football with HAFEEZ SPORTS branding and MATCH detailing. Suitable for regular training, recreational games and match practice.",
+    "available": true
+  },
+  {
+    "id": 11,
+    "name": "HAFEEZ SPORTS - Hand Sewn Match Football",
+    "category": "Football",
+    "price": "₨ 2,500",
+    "image": "p11.jpeg",
+    "desc": "Classic black and white HAFEEZ SPORTS match football with hand-sewn construction. Suitable for competitive matches, training and outdoor play.",
+    "available": true
+  },
+  {
+    "id": 12,
+    "name": "HAFEEZ SPORTS - MMA Gloves Blue & Black",
+    "category": "MMA",
+    "price": "₨ 3,200",
+    "image": "p12.jpeg",
+    "desc": "Blue and black MMA gloves with open-finger design, padded knuckle protection and wide wrist support. Ideal for MMA training and combat practice.",
+    "available": true
+  },
+  {
+    "id": 13,
+    "name": "HAFEEZ SPORTS - Star Training Football",
+    "category": "Football",
+    "price": "₨ 2,700",
+    "image": "p13.jpeg",
+    "desc": "White HAFEEZ SPORTS football featuring a stylish star-pattern design and durable panel construction. Suitable for training and recreational play.",
+    "available": true
+  },
+  {
+    "id": 14,
+    "name": "HAFEEZ SPORTS - Classic Indoor Football",
+    "category": "Football",
+    "price": "₨ 2,200",
+    "image": "p14.jpeg",
+    "desc": "Classic white and black HAFEEZ SPORTS football with traditional panel design. Suitable for indoor training, practice sessions and recreational games.",
+    "available": true
+  },
+  {
+    "id": 15,
+    "name": "HAFEEZ SPORTS - Boxing Gloves Black",
+    "category": "Boxing",
+    "price": "₨ 3,800",
+    "image": "p15.jpeg",
+    "desc": "Premium-style black boxing gloves featuring HAFEEZ SPORTS branding, padded construction and secure wrist support. Ideal for boxing training and sparring.",
+    "available": true
+  },
+  {
+    "id": 16,
+    "name": "HAFEEZ SPORTS - World Cup Football",
+    "category": "Football",
+    "price": "₨ 3,200",
+    "image": "p16.jpeg",
+    "desc": "White football with bold blue, yellow and green geometric graphics and HAFEEZ SPORTS branding. Designed for training, matches and recreational play.",
+    "available": true
+  },
+  {
+    "id": 17,
+    "name": "HAFEEZ SPORTS - Classic Black & White Football",
+    "category": "Football",
+    "price": "₨ 2,000",
+    "image": "p17.jpeg",
+    "desc": "Traditional black and white HAFEEZ SPORTS football with classic panel design. A versatile option for everyday practice and recreational games.",
+    "available": true
+  },
+  {
+    "id": 18,
+    "name": "HAFEEZ SPORTS - Orange Pro Football",
+    "category": "Football",
+    "price": "₨ 2,800",
+    "image": "p18.jpeg",
+    "desc": "Modern white football with striking orange and black geometric graphics and HAFEEZ SPORTS branding. Suitable for training and competitive practice.",
+    "available": true
+  },
+  {
+    "id": 19,
+    "name": "HAFEEZ SPORTS - Premium Shin Guards Tan",
+    "category": "Shin Guards",
+    "price": "₨ 2,000",
+    "image": "p19.jpeg",
+    "desc": "Tan-colored football shin guards with extended leg and ankle protection, secure straps and padded construction. Designed for football and sports training.",
+    "available": true
+  },
+  {
+    "id": 20,
+    "name": "HAFEEZ SPORTS - Shin Guards White & Gold",
+    "category": "Shin Guards",
+    "price": "₨ 2,000",
+    "image": "p20.jpeg",
+    "desc": "White and gold HAFEEZ SPORTS shin guards with lightweight protective padding, ankle coverage and adjustable straps. Suitable for football training and matches.",
+    "available": true
+  },
     {
-        "id": 1,
+        "id": 21,
         "name": "HAFEEZ SPORTS - Pro Football",
         "category": "Football",
-        "price": "₨ 3,800",
+        "price": "₨ 3,500",
         "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (2).jpeg",
         "desc": "Professional grade football with superior grip and control. Perfect for competitive matches.",
         "available": true
     },
     {
-        "id": 2,
+        "id": 22,
         "name": "HAFEEZ SPORTS - Match Handsewn Football",
         "category": "Football",
         "price": "₨ 2,500",
@@ -18,16 +198,16 @@
         "available": true
     },
     {
-        "id": 3,
+        "id": 23,
         "name": "HAFEEZ SPORTS - Handsewn Match Ball",
         "category": "Football",
-        "price": "₨ 2,500",
+        "price": "₨ 2,400",
         "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (7).jpeg",
         "desc": "High-quality handsewn football. Durable and weather resistant for all conditions.",
         "available": true
     },
     {
-        "id": 4,
+        "id": 24,
         "name": "HAFEEZ SPORTS - Hybrid Pro Football",
         "category": "Football",
         "price": "₨ 3,800",
@@ -36,7 +216,7 @@
         "available": true
     },
     {
-        "id": 5,
+        "id": 25,
         "name": "HAFEEZ SPORTS - Elite Gloves",
         "category": "Gloves",
         "price": "₨ 4,200",
@@ -45,7 +225,7 @@
         "available": true
     },
     {
-        "id": 6,
+        "id": 26,
         "name": "HAFEEZ SPORTS - Training Football",
         "category": "Football",
         "price": "₨ 1,800",
@@ -54,7 +234,7 @@
         "available": true
     },
     {
-        "id": 7,
+        "id": 27,
         "name": "HAFEEZ SPORTS - Hybrid Match Ball",
         "category": "Football",
         "price": "₨ 3,200",
@@ -63,7 +243,7 @@
         "available": true
     },
     {
-        "id": 8,
+        "id": 28,
         "name": "HAFEEZ SPORTS - Premium Gloves",
         "category": "Gloves",
         "price": "₨ 2,900",
@@ -71,4 +251,5 @@
         "desc": "Premium quality football with advanced technology. Suitable for all weather conditions.",
         "available": true
     }
+    
 ]
