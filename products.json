@@ -11,7 +11,7 @@
   {
     "id": 2,
     "name": "HAFEEZ SPORTS - Boxing Gloves Red",
-    "category": "Boxing",
+    "category": "Gloves",
     "price": "₨ 3,500",
     "image": "p2.jpeg",
     "desc": "Bright red boxing gloves featuring HAFEEZ SPORTS branding, padded construction and secure wrist straps. Suitable for boxing training, fitness and sparring.",
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "name": "HAFEEZ SPORTS - MMA Gloves Blue & Black",
-    "category": "MMA",
+    "category": "Gloves",
     "price": "₨ 3,000",
     "image": "p3.jpeg",
     "desc": "Blue and black MMA training gloves with padded knuckle protection, open-finger design and secure wrist support. Ideal for MMA and combat training.",
@@ -101,7 +101,7 @@
   {
     "id": 12,
     "name": "HAFEEZ SPORTS - MMA Gloves Blue & Black",
-    "category": "MMA",
+    "category": "Gloves",
     "price": "₨ 3,200",
     "image": "p12.jpeg",
     "desc": "Blue and black MMA gloves with open-finger design, padded knuckle protection and wide wrist support. Ideal for MMA training and combat practice.",
@@ -128,7 +128,7 @@
   {
     "id": 15,
     "name": "HAFEEZ SPORTS - Boxing Gloves Black",
-    "category": "Boxing",
+    "category": "Gloves",
     "price": "₨ 3,800",
     "image": "p15.jpeg",
     "desc": "Premium-style black boxing gloves featuring HAFEEZ SPORTS branding, padded construction and secure wrist support. Ideal for boxing training and sparring.",
@@ -164,7 +164,7 @@
   {
     "id": 19,
     "name": "HAFEEZ SPORTS - Premium Shin Guards Tan",
-    "category": "Shin Guards",
+    "category": "Gloves",
     "price": "₨ 2,000",
     "image": "p19.jpeg",
     "desc": "Tan-colored football shin guards with extended leg and ankle protection, secure straps and padded construction. Designed for football and sports training.",
@@ -173,7 +173,7 @@
   {
     "id": 20,
     "name": "HAFEEZ SPORTS - Shin Guards White & Gold",
-    "category": "Shin Guards",
+    "category": "Gloves",
     "price": "₨ 2,000",
     "image": "p20.jpeg",
     "desc": "White and gold HAFEEZ SPORTS shin guards with lightweight protective padding, ankle coverage and adjustable straps. Suitable for football training and matches.",
