@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /wishlist.html
+Disallow: /login.html
+Disallow: /admin-hafeez.html
+
+Sitemap: https://hafeezsports.com/sitemap.xml
