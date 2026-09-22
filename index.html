@@ -386,7 +386,7 @@
     <section class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <span class="top-label">Sports Goods/span>
+                <span class="top-label">Sports Goods</span>
                 <h1>
                     Train Like<br />
                     a <span class="highlight">Champion</span>
@@ -458,7 +458,7 @@
         <div class="footer-grid">
             <div class="brand">
                 <h3>HAFEEZ<span class="highlight">SPORTS</span></h3>
-                <p>Premium sportswear engineered for champions.</p>
+                <p>Premium sports goods engineered for champions.</p>
                 <p style="font-size:0.8rem; opacity:0.7; margin-top:4px;">Proprietor: Muhammad Hafeez</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -612,46 +612,4 @@
                     <div class="product-image">
                         <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/400x250/0A1628/FF6B35?text=Product'" />
                         ${p.available ? '' : '<span class="badge">Out of Stock</span>'}
-                        <button class="wishlist-btn" onclick="toggleWishlist(${p.id})"><i class="far fa-heart"></i></button>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-name">${p.name}</div>
-                        <div class="product-category">${p.category}</div>
-                        <div class="product-price">${p.price}</div>
-                        <a href="product-detail.html?id=${p.id}" style="display:block; text-align:center; margin-top:6px; color:var(--orange); font-size:0.8rem; text-decoration:none;">View Details</a>
-                        <button class="add-to-cart" onclick="addToCart(${p.id}, '${p.name}', '${p.price}', '${p.image}')">Add to Cart</button>
-                    </div>
-                </div>
-            `).join('');
-
-            updateCartCount();
-        }
-
-        // ============================================================
-        // ===== NAVBAR =====
-        // ============================================================
-        window.addEventListener('scroll', function() {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        document.getElementById('hamburger').addEventListener('click', function() {
-            const links = document.querySelector('.nav-links');
-            if (links.style.display === 'flex') { links.style.display = 'none'; } else {
-                links.style.display = 'flex';
-                links.style.flexDirection = 'column';
-                links.style.position = 'absolute';
-                links.style.top = '70px';
-                links.style.left = '0';
-                links.style.right = '0';
-                links.style.background = 'rgba(255,107,53,0.95)';
-                links.style.padding = '20px 24px';
-                links.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
-                links.style.gap = '12px';
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', loadProducts);
-    </script>
-
-</body>
-</html>
+                        <button class="wishlist-btn"
