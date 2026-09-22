@@ -17,15 +17,7 @@
     "desc": "Bright red boxing gloves featuring HAFEEZ SPORTS branding, padded construction and secure wrist straps. Suitable for boxing training, fitness and sparring.",
     "available": true
   },
-  {
-    "id": 3,
-    "name": "HAFEEZ SPORTS - MMA Gloves Blue & Black",
-    "category": "Gloves",
-    "price": "₨ 3,000",
-    "image": "p3.jpeg",
-    "desc": "Blue and black MMA training gloves with padded knuckle protection, open-finger design and secure wrist support. Ideal for MMA and combat training.",
-    "available": true
-  },
+
   {
     "id": 5,
     "name": "HAFEEZ SPORTS - Pro Football Green",
