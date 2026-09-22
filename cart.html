@@ -264,7 +264,7 @@
         <div class="footer-grid">
             <div class="brand">
                 <h3>HAFEEZ<span class="highlight">SPORTS</span></h3>
-                <p>Premium sportswear engineered for champions.</p>
+                <p>Premium sports goods engineered for champions.</p>
                 <p style="font-size:0.8rem; opacity:0.7; margin-top:4px;">Proprietor: Muhammad Hafeez</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -364,7 +364,6 @@
             let subtotal = 0;
 
             cart.forEach((item, index) => {
-                // ✅ FIX: price null/undefined ho toh 0 set karein
                 const price = (typeof item.price === 'number' && !isNaN(item.price)) ? item.price : 0;
                 const quantity = (typeof item.quantity === 'number' && !isNaN(item.quantity)) ? item.quantity : 1;
                 const itemTotal = price * quantity;
@@ -379,7 +378,7 @@
                         <div class="item-image">${imageHtml}</div>
                         <div class="item-details">
                             <h4>${item.name || 'Unknown Product'}</h4>
-                            <div class="category">Sportswear</div>
+                            <div class="category">Sports Goods</div>
                             <div class="price">₨ ${price.toFixed(2)}</div>
                         </div>
                         <div class="item-quantity">
