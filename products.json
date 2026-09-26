@@ -17,7 +17,6 @@
     "desc": "Bright red boxing gloves featuring HAFEEZ SPORTS branding, padded construction and secure wrist straps. Suitable for boxing training, fitness and sparring.",
     "available": true
   },
-
   {
     "id": 5,
     "name": "HAFEEZ SPORTS - Pro Football Green",
@@ -145,15 +144,6 @@
     "available": true
   },
   {
-    "id": 21,
-    "name": "HAFEEZ SPORTS - Pro Football",
-    "category": "Football",
-    "price": "₨ 3,500",
-    "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (2).jpeg",
-    "desc": "Professional grade football with superior grip and control. Perfect for competitive matches.",
-    "available": true
-  },
-  {
     "id": 22,
     "name": "HAFEEZ SPORTS - Match Handsewn Football",
     "category": "Football",
@@ -181,21 +171,30 @@
     "available": true
   },
   {
-    "id": 25,
-    "name": "HAFEEZ SPORTS - Elite Gloves",
-    "category": "Gloves",
-    "price": "₨ 4,200",
-    "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (10).jpeg",
-    "desc": "Elite professional football. Premium hand-stitched quality for competitive matches.",
+    "id": 27,
+    "name": "HAFEEZ SPORTS - Official Size 4 Football",
+    "category": "Football",
+    "price": "₨ 2,300",
+    "image": "p22.jpeg",
+    "desc": "White and orange football with a unique splash pattern and official size 4 markings. Suitable for youth matches, training sessions and recreational play.",
     "available": true
   },
   {
-    "id": 26,
-    "name": "HAFEEZ SPORTS - Training Football",
+    "id": 28,
+    "name": "HAFEEZ SPORTS - Size 5 Match Football 2023",
     "category": "Football",
-    "price": "₨ 1,800",
-    "image": "WhatsApp Image 2026-07-14 at 9.47.40 PM (12).jpeg",
-    "desc": "High-quality training football. Perfect for practice sessions and junior players.",
+    "price": "₨ 3,000",
+    "image": "p23.jpeg",
+    "desc": "Blue, white and yellow football featuring HAFEEZ SPORTS branding, size 5 and 2023 markings. Designed for competitive matches and professional-level training.",
+    "available": true
+  },
+  {
+    "id": 29,
+    "name": "HAFEEZ SPORTS - 32 Panel Hand Sewn Football",
+    "category": "Football",
+    "price": "₨ 2,600",
+    "image": "p24.jpeg",
+    "desc": "Red, white and black hand-sewn football with 32-panel construction and HAFEEZ SPORTS detailing. Built for durability and consistent performance in training and matches.",
     "available": true
   }
 ]
